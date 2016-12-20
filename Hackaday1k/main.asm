@@ -14,6 +14,12 @@
 .equ LCD_COMMAND = 0
 .equ LCD_DATA = 1
 .equ LCD_CONTRAST = 50
+.equ LCD_WIDTH = 84
+.equ LCD_HEIGHT = 48
+
+.org $0000
+.db 0x01, 0x7a, 0x00, 0x00
+
 
 start:
 	; Control Pins
@@ -79,28 +85,117 @@ start:
 	ldi r17, 0x20
 	rcall lcdwrite
 
-	; Write some pixel data
-	; Send 504 (0x01F8) bytes
-	ldi r25, 0x01 ; high bit
-	ldi r24, 0xF8 ; low bit
-sample_data_write:
-	; Send some sample data
-	ldi r16, LCD_DATA
-	ldi r17, 0xF0
-	rcall lcdwrite
+	rcall display_buffer_clear
 
-	; Subtract
-	sbiw r25:r24,1 
-	cpi r25, 0x00
-	brne sample_data_write
-	cpi r24, 0x00
-	brne sample_data_write
+	; Set some pixels
+	; Top left
+	ldi r16, 0x00
+	ldi r17, 0x00	
+	rcall display_buffer_set_pixel
+
+	; Middle
+	ldi r16, 0x18
+	ldi r17, 0x2A	
+	rcall display_buffer_set_pixel
+
+	; Bottom right
+	ldi r16, 0x2F
+	ldi r17, 0x53	
+	rcall display_buffer_set_pixel
+
+	rcall lcdwrite_display_buffer
 
 	sbi PORTB, PB1
 loop:
     inc r16
     rjmp loop
 
+; Clear the display buffer
+display_buffer_clear:
+	ldi r16, 0x00
+	ldi ZH, 0x01
+	ldi ZL, 0x00
+display_buffer_clear_store:
+	st Z+, r16
+	cpi ZH, 0x02
+	brne display_buffer_clear_store
+	cpi ZL, 0xF8
+	brne display_buffer_clear_store
+	ret
+
+; Set an individual pixel in the display buffer
+; r16 - Y
+; r17 - X
+display_buffer_set_pixel:
+	; Algorithm:
+	; shift = y % 8;
+	; display_map[x + (y/8)*LCD_WIDTH] |= 1<<shift;
+
+	; divide Y by 8 (aka 3 right shifts)
+	mov r19, r16
+	asr r19 
+	asr r19
+	asr r19	
+
+	; multiply Y byLCD_WIDTH
+	ldi r20, LCD_WIDTH
+	mul r19, r20
+	mov ZH, r1
+	mov ZL, r0
+
+	; Add X
+	adc ZL, r17	
+	ldi r20, 0x01
+	brcc display_buffer_set_pixel_add_offset
+	add ZH, r20
+
+	; Add display buffer memory offset, $0100
+display_buffer_set_pixel_add_offset:
+	add ZH, r20
+
+	; Get the bit position within the display buffer byte
+	; Y % 8 (aka bitmask with 0000 0111)
+	ldi r19, 0x07
+	and r16, r19
+
+	; Build a mask from the bit position
+	; Turn 2 into 0000 0100
+	ldi r19, 0x01
+	cpi r16, 0x00
+	breq display_buffer_set_pixel_apply_mask
+display_buffer_set_pixel_shift_mask:
+	lsl r19
+	dec r16
+	cpi r16, 0x00
+	brne display_buffer_set_pixel_shift_mask
+
+	; Load existing value from memory
+	; Apply the bitmask
+	; Store back to memory
+display_buffer_set_pixel_apply_mask:	 
+	ld r20, Z
+	or r20, r19	
+	st Z, r20
+	ret
+
+; Write display buffer to the LCD
+lcdwrite_display_buffer:
+	; Set memory position at start of display buffer, $0100
+	ldi ZH, 0x01
+	ldi ZL, 0x00	
+
+	; Loop through the buffer, sending each value to the LCD
+lcdwrite_display_buffer_byte:
+	ld r17, Z+
+	ldi r16, LCD_DATA
+	rcall lcdwrite
+
+	; Stop if we're at the end, 84x48 + 0x0100 => 0x02F8
+	cpi ZH, 0x02
+	brne lcdwrite_display_buffer_byte
+	cpi ZL, 0xF8
+	brne lcdwrite_display_buffer_byte
+	ret
 
 ; r16 - write_type (LCD_COMMAND or LCD_DATA)
 ; r17 - data
