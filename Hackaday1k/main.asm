@@ -83,7 +83,7 @@ start:
 
 	; Set some pixels
 	; Top left
-	ldi r16, 0x04
+	ldi r16, 0x00
 	ldi r17, 0x00	
 	rcall display_buffer_set_pixel
 
@@ -106,11 +106,10 @@ loop:
 
 ; Clear the display buffer
 display_buffer_clear:
-	ldi r16, 0x00
 	ldi ZH, 0x01
 	ldi ZL, 0x00
 display_buffer_clear_store:
-	st Z+, r16
+	st Z+, r0 ; r0 is probably 0....
 	cpi ZH, 0x02
 	brne display_buffer_clear_store
 	cpi ZL, 0xF8
@@ -131,7 +130,7 @@ display_buffer_set_pixel:
 	asr r19
 	asr r19	
 
-	; multiply Y byLCD_WIDTH
+	; multiply Y by LCD_WIDTH
 	ldi r20, LCD_WIDTH
 	mul r19, r20
 	mov ZH, r1
@@ -194,14 +193,12 @@ lcdwrite_display_buffer_byte:
 ; r16 - write_type (LCD_COMMAND or LCD_DATA)
 ; r17 - data
 lcdwrite: 
-	ldi r18, LCD_DATA
-	cp r16, r18
-	breq lcdwrite_command_set_data ; Sending command data?
-	; Sending pixel data: set D/C line low
-	cbi PORTD, PIN_DISPLAY_DC
-	rjmp lcdwrite_send_data
-lcdwrite_command_set_data:
-	sbi PORTD, PIN_DISPLAY_DC
+	sbi PORTD, PIN_DISPLAY_DC ; Set D/C line high as a default (sending data) to save some space
+	; But check if that's really the right choice...
+	cpi r16, LCD_DATA
+	breq lcdwrite_send_data ; Yup, we're sending data? We're already good.
+	cbi PORTD, PIN_DISPLAY_DC ; Actually we're sending a command. Set the D/C line low
+
 lcdwrite_send_data:
 	; Set chip select low
 	cbi PORTD, PIN_DISPLAY_SCE

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Mon Dec 19 22:42:24 2016
+AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Mon Dec 19 23:27:00 2016
 
 
 EQU  SIGNATURE_000 0000001e
@@ -704,16 +704,15 @@ EQU  LCD_CONTRAST 00000032
 EQU  LCD_WIDTH    00000054
 EQU  LCD_HEIGHT   00000030
 CSEG start        00000002
-CSEG lcdwrite     00000055
+CSEG lcdwrite     00000054
 CSEG display_buffer_clear 00000028
-CSEG display_buffer_set_pixel 00000031
-CSEG lcdwrite_display_buffer 0000004b
+CSEG display_buffer_set_pixel 00000030
+CSEG lcdwrite_display_buffer 0000004a
 CSEG loop         00000026
-CSEG display_buffer_clear_store 0000002b
-CSEG display_buffer_set_pixel_add_offset 0000003d
-CSEG display_buffer_set_pixel_apply_mask 00000047
-CSEG display_buffer_set_pixel_shift_mask 00000043
-CSEG lcdwrite_display_buffer_byte 0000004d
-CSEG lcdwrite_command_set_data 0000005a
-CSEG lcdwrite_send_data 0000005b
-CSEG lcdwrite_wait 0000005d
+CSEG display_buffer_clear_store 0000002a
+CSEG display_buffer_set_pixel_add_offset 0000003c
+CSEG display_buffer_set_pixel_apply_mask 00000046
+CSEG display_buffer_set_pixel_shift_mask 00000042
+CSEG lcdwrite_display_buffer_byte 0000004c
+CSEG lcdwrite_send_data 00000058
+CSEG lcdwrite_wait 0000005a
