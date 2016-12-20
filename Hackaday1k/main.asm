@@ -101,7 +101,6 @@ start:
 
 	sbi PORTB, PB1
 loop:
-    inc r16
     rjmp loop
 
 ; Clear the display buffer
