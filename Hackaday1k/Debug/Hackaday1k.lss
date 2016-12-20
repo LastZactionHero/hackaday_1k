@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Mon Dec 19 22:18:20 2016
+AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Mon Dec 19 22:42:24 2016
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\m328pdef.inc'
 C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm(8): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\M328PDEF.INC'
@@ -1065,8 +1065,9 @@ C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm(8): Incl
 000006 e500                      	ldi	R16, (1 << MSTR) | (1 << SPE)
 000007 bd0c                      	out	SPCR, r16
                                   
+000008 9829                      	cbi PORTB, PB1; backlight test - remove me
+                                 
                                  	; Reset the LCD to a known state
-000008 9a5e                      	sbi PORTD, PIN_DISPLAY_RST
 000009 985e                      	cbi PORTD, PIN_DISPLAY_RST
 00000a 9a5e                      	sbi PORTD, PIN_DISPLAY_RST
                                  
@@ -1074,86 +1075,79 @@ C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm(8): Incl
                                  	; Tell LCD extended commands follow
 00000b e000                      	ldi r16, LCD_COMMAND
 00000c e211                      	ldi r17, 0x21
-00000d d054                      	rcall lcdwrite
-00000e 9829                      	cbi PORTB, PB1
+00000d d047                      	rcall lcdwrite
                                  
+                                 	; Might not be important, cutting for space...
                                  	; Set LCD Vop (Contrast)
-00000f e000                      	ldi r16, LCD_COMMAND
-000010 eb10                      	ldi r17, 0xB0
-000011 d050                      	rcall lcdwrite
+                                 	; ldi r17, 0xB0
+                                 	; rcall lcdwrite
                                  
+                                 	; Might not be important, cutting for space...
                                  	; Set Temp coefficent
-000012 e000                      	ldi r16, LCD_COMMAND
-000013 e014                      	ldi r17, 0x04
-000014 d04d                      	rcall lcdwrite
+                                 	; ldi r17, 0x04
+                                 	; rcall lcdwrite
                                  
                                  	; LCD bias mode 1:48 (try 0x13)
-000015 e000                      	ldi r16, LCD_COMMAND
-000016 e114                      	ldi r17, 0x14
-000017 d04a                      	rcall lcdwrite
+00000e e114                      	ldi r17, 0x14
+00000f d045                      	rcall lcdwrite
                                  
                                  	; We must send 0x20 before modifying the display control mode
-000018 e000                      	ldi r16, LCD_COMMAND
-000019 e210                      	ldi r17, 0x20
-00001a d047                      	rcall lcdwrite
+000010 e210                      	ldi r17, 0x20
+000011 d043                      	rcall lcdwrite
                                  
                                  	; Set display control, normal mode.
-00001b e000                      	ldi r16, LCD_COMMAND
-00001c e01c                      	ldi r17, 0x0C
-00001d d044                      	rcall lcdwrite
+000012 e01c                      	ldi r17, 0x0C
+000013 d041                      	rcall lcdwrite
                                  
                                  	; Tell LCD that extended commands follow
-00001e e000                      	ldi r16, LCD_COMMAND
-00001f e211                      	ldi r17, 0x21
-000020 d041                      	rcall lcdwrite
+000014 e211                      	ldi r17, 0x21
+000015 d03f                      	rcall lcdwrite
                                  
                                  	; Set LCD Vop (Contrast): Try 0xB1(good @ 3.3V) or 0xBF if your display is too dark
-000021 e000                      	ldi r16, LCD_COMMAND
-000022 eb12                      	ldi r17, 0x80 | LCD_CONTRAST
-000023 d03e                      	rcall lcdwrite
+000016 eb12                      	ldi r17, 0x80 | LCD_CONTRAST
+000017 d03d                      	rcall lcdwrite
                                  
                                  	; Set display mode
-000024 e000                      	ldi r16, LCD_COMMAND
-000025 e210                      	ldi r17, 0x20
-000026 d03b                      	rcall lcdwrite
+000018 e210                      	ldi r17, 0x20
+000019 d03b                      	rcall lcdwrite
                                  
-000027 d00d                      	rcall display_buffer_clear
+00001a d00d                      	rcall display_buffer_clear
                                  
                                  	; Set some pixels
                                  	; Top left
-000028 e000                      	ldi r16, 0x00
-000029 e010                      	ldi r17, 0x00	
-00002a d013                      	rcall display_buffer_set_pixel
+00001b e004                      	ldi r16, 0x04
+00001c e010                      	ldi r17, 0x00	
+00001d d013                      	rcall display_buffer_set_pixel
                                  
                                  	; Middle
-00002b e108                      	ldi r16, 0x18
-00002c e21a                      	ldi r17, 0x2A	
-00002d d010                      	rcall display_buffer_set_pixel
+00001e e108                      	ldi r16, 0x18
+00001f e21a                      	ldi r17, 0x2A	
+000020 d010                      	rcall display_buffer_set_pixel
                                  
                                  	; Bottom right
-00002e e20f                      	ldi r16, 0x2F
-00002f e513                      	ldi r17, 0x53	
-000030 d00d                      	rcall display_buffer_set_pixel
+000021 e20f                      	ldi r16, 0x2F
+000022 e513                      	ldi r17, 0x53	
+000023 d00d                      	rcall display_buffer_set_pixel
                                  
-000031 d026                      	rcall lcdwrite_display_buffer
+000024 d026                      	rcall lcdwrite_display_buffer
                                  
-000032 9a29                      	sbi PORTB, PB1
+000025 9a29                      	sbi PORTB, PB1
                                  loop:
-000033 9503                          inc r16
-000034 cffe                          rjmp loop
+000026 9503                          inc r16
+000027 cffe                          rjmp loop
                                  
                                  ; Clear the display buffer
                                  display_buffer_clear:
-000035 e000                      	ldi r16, 0x00
-000036 e0f1                      	ldi ZH, 0x01
-000037 e0e0                      	ldi ZL, 0x00
+000028 e000                      	ldi r16, 0x00
+000029 e0f1                      	ldi ZH, 0x01
+00002a e0e0                      	ldi ZL, 0x00
                                  display_buffer_clear_store:
-000038 9301                      	st Z+, r16
-000039 30f2                      	cpi ZH, 0x02
-00003a f7e9                      	brne display_buffer_clear_store
-00003b 3fe8                      	cpi ZL, 0xF8
-00003c f7d9                      	brne display_buffer_clear_store
-00003d 9508                      	ret
+00002b 9301                      	st Z+, r16
+00002c 30f2                      	cpi ZH, 0x02
+00002d f7e9                      	brne display_buffer_clear_store
+00002e 3fe8                      	cpi ZL, 0xF8
+00002f f7d9                      	brne display_buffer_clear_store
+000030 9508                      	ret
                                  
                                  ; Set an individual pixel in the display buffer
                                  ; r16 - Y
@@ -1164,97 +1158,97 @@ C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm(8): Incl
                                  	; display_map[x + (y/8)*LCD_WIDTH] |= 1<<shift;
                                  
                                  	; divide Y by 8 (aka 3 right shifts)
-00003e 2f30                      	mov r19, r16
-00003f 9535                      	asr r19 
-000040 9535                      	asr r19
-000041 9535                      	asr r19	
+000031 2f30                      	mov r19, r16
+000032 9535                      	asr r19 
+000033 9535                      	asr r19
+000034 9535                      	asr r19	
                                  
                                  	; multiply Y byLCD_WIDTH
-000042 e544                      	ldi r20, LCD_WIDTH
-000043 9f34                      	mul r19, r20
-000044 2df1                      	mov ZH, r1
-000045 2de0                      	mov ZL, r0
+000035 e544                      	ldi r20, LCD_WIDTH
+000036 9f34                      	mul r19, r20
+000037 2df1                      	mov ZH, r1
+000038 2de0                      	mov ZL, r0
                                  
                                  	; Add X
-000046 1fe1                      	adc ZL, r17	
-000047 e041                      	ldi r20, 0x01
-000048 f408                      	brcc display_buffer_set_pixel_add_offset
-000049 0ff4                      	add ZH, r20
+000039 1fe1                      	adc ZL, r17	
+00003a e041                      	ldi r20, 0x01
+00003b f408                      	brcc display_buffer_set_pixel_add_offset
+00003c 0ff4                      	add ZH, r20
                                  
                                  	; Add display buffer memory offset, $0100
                                  display_buffer_set_pixel_add_offset:
-00004a 0ff4                      	add ZH, r20
+00003d 0ff4                      	add ZH, r20
                                  
                                  	; Get the bit position within the display buffer byte
                                  	; Y % 8 (aka bitmask with 0000 0111)
-00004b e037                      	ldi r19, 0x07
-00004c 2303                      	and r16, r19
+00003e e037                      	ldi r19, 0x07
+00003f 2303                      	and r16, r19
                                  
                                  	; Build a mask from the bit position
                                  	; Turn 2 into 0000 0100
-00004d e031                      	ldi r19, 0x01
-00004e 3000                      	cpi r16, 0x00
-00004f f021                      	breq display_buffer_set_pixel_apply_mask
+000040 e031                      	ldi r19, 0x01
+000041 3000                      	cpi r16, 0x00
+000042 f021                      	breq display_buffer_set_pixel_apply_mask
                                  display_buffer_set_pixel_shift_mask:
-000050 0f33                      	lsl r19
-000051 950a                      	dec r16
-000052 3000                      	cpi r16, 0x00
-000053 f7e1                      	brne display_buffer_set_pixel_shift_mask
+000043 0f33                      	lsl r19
+000044 950a                      	dec r16
+000045 3000                      	cpi r16, 0x00
+000046 f7e1                      	brne display_buffer_set_pixel_shift_mask
                                  
                                  	; Load existing value from memory
                                  	; Apply the bitmask
                                  	; Store back to memory
                                  display_buffer_set_pixel_apply_mask:	 
-000054 8140                      	ld r20, Z
-000055 2b43                      	or r20, r19	
-000056 8340                      	st Z, r20
-000057 9508                      	ret
+000047 8140                      	ld r20, Z
+000048 2b43                      	or r20, r19	
+000049 8340                      	st Z, r20
+00004a 9508                      	ret
                                  
                                  ; Write display buffer to the LCD
                                  lcdwrite_display_buffer:
                                  	; Set memory position at start of display buffer, $0100
-000058 e0f1                      	ldi ZH, 0x01
-000059 e0e0                      	ldi ZL, 0x00	
+00004b e0f1                      	ldi ZH, 0x01
+00004c e0e0                      	ldi ZL, 0x00	
                                  
                                  	; Loop through the buffer, sending each value to the LCD
                                  lcdwrite_display_buffer_byte:
-00005a 9111                      	ld r17, Z+
-00005b e001                      	ldi r16, LCD_DATA
-00005c d005                      	rcall lcdwrite
+00004d 9111                      	ld r17, Z+
+00004e e001                      	ldi r16, LCD_DATA
+00004f d005                      	rcall lcdwrite
                                  
                                  	; Stop if we're at the end, 84x48 + 0x0100 => 0x02F8
-00005d 30f2                      	cpi ZH, 0x02
-00005e f7d9                      	brne lcdwrite_display_buffer_byte
-00005f 3fe8                      	cpi ZL, 0xF8
-000060 f7c9                      	brne lcdwrite_display_buffer_byte
-000061 9508                      	ret
+000050 30f2                      	cpi ZH, 0x02
+000051 f7d9                      	brne lcdwrite_display_buffer_byte
+000052 3fe8                      	cpi ZL, 0xF8
+000053 f7c9                      	brne lcdwrite_display_buffer_byte
+000054 9508                      	ret
                                  
                                  ; r16 - write_type (LCD_COMMAND or LCD_DATA)
                                  ; r17 - data
                                  lcdwrite: 
-000062 e021                      	ldi r18, LCD_DATA
-000063 1702                      	cp r16, r18
-000064 f011                      	breq lcdwrite_command_set_data ; Sending command data?
+000055 e021                      	ldi r18, LCD_DATA
+000056 1702                      	cp r16, r18
+000057 f011                      	breq lcdwrite_command_set_data ; Sending command data?
                                  	; Sending pixel data: set D/C line low
-000065 985d                      	cbi PORTD, PIN_DISPLAY_DC
-000066 c001                      	rjmp lcdwrite_send_data
+000058 985d                      	cbi PORTD, PIN_DISPLAY_DC
+000059 c001                      	rjmp lcdwrite_send_data
                                  lcdwrite_command_set_data:
-000067 9a5d                      	sbi PORTD, PIN_DISPLAY_DC
+00005a 9a5d                      	sbi PORTD, PIN_DISPLAY_DC
                                  lcdwrite_send_data:
                                  	; Set chip select low
-000068 985f                      	cbi PORTD, PIN_DISPLAY_SCE
+00005b 985f                      	cbi PORTD, PIN_DISPLAY_SCE
                                  
                                  	; Send the data
-000069 bd1e                      	out		SPDR, r17
+00005c bd1e                      	out		SPDR, r17
                                  
                                  	; Wait for data to send
                                  lcdwrite_wait:
-00006a b50d                      	in		r16, SPSR
-00006b ff07                      	sbrs	r16, SPIF
-00006c cffd                      	rjmp	lcdwrite_wait
+00005d b50d                      	in		r16, SPSR
+00005e ff07                      	sbrs	r16, SPIF
+00005f cffd                      	rjmp	lcdwrite_wait
                                  
                                  	; Set chip select high
-00006d 9a5f                      	sbi PORTD, PIN_DISPLAY_SCE
+000060 9a5f                      	sbi PORTD, PIN_DISPLAY_SCE
 
 
 RESOURCE USE INFORMATION
@@ -1274,7 +1268,7 @@ counted separately from r26..r31 here.
 "ATmega328P" register use summary:
 x  :   0 y  :   0 z  :   4 r0 :   1 r1 :   1 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  30 r17:  15 r18:   2 r19:  10 r20:   8 
+r13:   0 r14:   0 r15:   0 r16:  22 r17:  13 r18:   2 r19:  10 r20:   8 
 r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   6 r31:   7 
 Registers used: 10 out of 35 (28.6%)
@@ -1290,11 +1284,11 @@ clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   1 cpc   :   0 
 cpi   :   6 cpse  :   0 dec   :   1 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   1 inc   :   1 jmp   :   0 
-ld    :   2 ldd   :   0 ldi   :  38 lds   :   0 lpm   :   0 lsl   :   1 
+ld    :   2 ldd   :   0 ldi   :  28 lds   :   0 lpm   :   0 lsl   :   1 
 lsr   :   0 mov   :   3 movw  :   0 mul   :   1 muls  :   0 mulsu :   0 
 neg   :   0 nop   :   0 or    :   1 ori   :   0 out   :   4 pop   :   0 
-push  :   0 rcall :  15 ret   :   4 reti  :   0 rjmp  :   3 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :   5 sbic  :   0 sbis  :   0 
+push  :   0 rcall :  13 ret   :   4 reti  :   0 rjmp  :   3 rol   :   0 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   :   4 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   1 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   2 std   :   0 sts   :   0 
@@ -1304,7 +1298,7 @@ Instructions used: 26 out of 113 (23.0%)
 "ATmega328P" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0000de    218      4    222   32768   0.7%
+[.cseg] 0x000000 0x0000c4    192      4    196   32768   0.6%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 

@@ -33,8 +33,9 @@ start:
 	ldi	R16, (1 << MSTR) | (1 << SPE)
 	out	SPCR, r16
  
+	cbi PORTB, PB1; backlight test - remove me
+
 	; Reset the LCD to a known state
-	sbi PORTD, PIN_DISPLAY_RST
 	cbi PORTD, PIN_DISPLAY_RST
 	sbi PORTD, PIN_DISPLAY_RST
 
@@ -43,45 +44,38 @@ start:
 	ldi r16, LCD_COMMAND
 	ldi r17, 0x21
 	rcall lcdwrite
-	cbi PORTB, PB1
 
+	; Might not be important, cutting for space...
 	; Set LCD Vop (Contrast)
-	ldi r16, LCD_COMMAND
-	ldi r17, 0xB0
-	rcall lcdwrite
+	; ldi r17, 0xB0
+	; rcall lcdwrite
 
+	; Might not be important, cutting for space...
 	; Set Temp coefficent
-	ldi r16, LCD_COMMAND
-	ldi r17, 0x04
-	rcall lcdwrite
+	; ldi r17, 0x04
+	; rcall lcdwrite
 
 	; LCD bias mode 1:48 (try 0x13)
-	ldi r16, LCD_COMMAND
 	ldi r17, 0x14
 	rcall lcdwrite
 
 	; We must send 0x20 before modifying the display control mode
-	ldi r16, LCD_COMMAND
 	ldi r17, 0x20
 	rcall lcdwrite
 
 	; Set display control, normal mode.
-	ldi r16, LCD_COMMAND
 	ldi r17, 0x0C
 	rcall lcdwrite
 
 	; Tell LCD that extended commands follow
-	ldi r16, LCD_COMMAND
 	ldi r17, 0x21
 	rcall lcdwrite
 
 	; Set LCD Vop (Contrast): Try 0xB1(good @ 3.3V) or 0xBF if your display is too dark
-	ldi r16, LCD_COMMAND
 	ldi r17, 0x80 | LCD_CONTRAST
 	rcall lcdwrite
 
 	; Set display mode
-	ldi r16, LCD_COMMAND
 	ldi r17, 0x20
 	rcall lcdwrite
 
@@ -89,7 +83,7 @@ start:
 
 	; Set some pixels
 	; Top left
-	ldi r16, 0x00
+	ldi r16, 0x04
 	ldi r17, 0x00	
 	rcall display_buffer_set_pixel
 
