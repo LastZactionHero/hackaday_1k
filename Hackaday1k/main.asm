@@ -110,9 +110,7 @@ display_buffer_clear:
 	ldi ZL, 0x00
 display_buffer_clear_store:
 	st Z+, r0 ; r0 is probably 0....
-	cpi ZH, 0x02
-	brne display_buffer_clear_store
-	cpi ZL, 0xF8
+	cpi ZH, 0x03 ; clear to 0x0300, instead of 0x02F8. Saves a few words...
 	brne display_buffer_clear_store
 	ret
 
