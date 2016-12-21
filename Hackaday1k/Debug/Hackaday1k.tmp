@@ -23,23 +23,27 @@
   <FILE>Hackaday1k.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <start><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>23</LINE></start>
-  <lcdwrite><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>253</LINE></lcdwrite>
-  <display_buffer_clear><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>168</LINE></display_buffer_clear>
-  <text_write_character><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>110</LINE></text_write_character>
-  <lcdwrite_display_buffer><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>233</LINE></lcdwrite_display_buffer>
-  <loop><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>105</LINE></loop>
-  <text_write_character_write_loop><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>120</LINE></text_write_character_write_loop>
-  <text_write_character_next_bit><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>130</LINE></text_write_character_next_bit>
-  <text_write_character_finished><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>163</LINE></text_write_character_finished>
-  <text_writer_character_increment><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>154</LINE></text_writer_character_increment>
-  <display_buffer_set_pixel><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>180</LINE></display_buffer_set_pixel>
-  <display_buffer_clear_store><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>171</LINE></display_buffer_clear_store>
-  <display_buffer_set_pixel_add_offset><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>204</LINE></display_buffer_set_pixel_add_offset>
-  <display_buffer_set_pixel_apply_mask><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>226</LINE></display_buffer_set_pixel_apply_mask>
-  <display_buffer_set_pixel_shift_mask><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>217</LINE></display_buffer_set_pixel_shift_mask>
-  <lcdwrite_display_buffer_byte><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>239</LINE></lcdwrite_display_buffer_byte>
-  <lcdwrite_send_data><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>260</LINE></lcdwrite_send_data>
-  <lcdwrite_wait><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>268</LINE></lcdwrite_wait>
+  <tinyfont><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>21</LINE></tinyfont>
+  <start><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>27</LINE></start>
+  <lcdwrite><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>258</LINE></lcdwrite>
+  <display_buffer_clear><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>173</LINE></display_buffer_clear>
+  <text_write_character><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>98</LINE></text_write_character>
+  <lcdwrite_display_buffer><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>238</LINE></lcdwrite_display_buffer>
+  <loop><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>95</LINE></loop>
+  <text_load_character><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>135</LINE></text_load_character>
+  <text_write_character_next_pixel><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>108</LINE></text_write_character_next_pixel>
+  <text_write_character_increment><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>122</LINE></text_write_character_increment>
+  <display_buffer_set_pixel><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>185</LINE></display_buffer_set_pixel>
+  <text_load_character_next_byte><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>145</LINE></text_load_character_next_byte>
+  <text_load_character_done><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>168</LINE></text_load_character_done>
+  <text_load_character_next_bit><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>152</LINE></text_load_character_next_bit>
+  <text_load_character_store><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>161</LINE></text_load_character_store>
+  <display_buffer_clear_store><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>176</LINE></display_buffer_clear_store>
+  <display_buffer_set_pixel_add_offset><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>209</LINE></display_buffer_set_pixel_add_offset>
+  <display_buffer_set_pixel_apply_mask><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>231</LINE></display_buffer_set_pixel_apply_mask>
+  <display_buffer_set_pixel_shift_mask><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>222</LINE></display_buffer_set_pixel_shift_mask>
+  <lcdwrite_display_buffer_byte><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>244</LINE></lcdwrite_display_buffer_byte>
+  <lcdwrite_send_data><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>265</LINE></lcdwrite_send_data>
+  <lcdwrite_wait><FILE>C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm</FILE><LINE>273</LINE></lcdwrite_wait>
  </LABELS>
 </ASSEMBLER_INFO>

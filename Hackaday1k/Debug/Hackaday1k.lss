@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Tue Dec 20 18:46:17 2016
+AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Wed Dec 21 09:56:51 2016
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\m328pdef.inc'
 C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm(8): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\M328PDEF.INC'
@@ -1048,35 +1048,109 @@ C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm(8): Incl
                                  .equ LCD_WIDTH = 84
                                  .equ LCD_HEIGHT = 48
                                  
+                                 .org $0080
+                                 tinyfont:
+000080 0104
+000081 7971
+000082 0070
+000083 0804
+000084 998e
+000085 00e0
+000086 0104
+000087 8969
+000088 0060
+000089 0104
+00008a 9917
+00008b 0070
+00008c 0104
+00008d f869
+00008e 0070
+00008f 0d03
+000090 9074
+000091 0400
+000092 7901
+000093 9771
+000094 0400
+000095 8e08
+000096 9099
+000097 0100
+000098 005e
+000099 1102
+00009a 0056
+00009b 0804
+00009c ca9a
+00009d 0090
+00009e 7e01
+00009f 0600
+0000a0 0801
+0000a1 963e
+0000a2 4059
+0000a3 0300
+0000a4 0d01
+0000a5 0068
+0000a6 0104
+0000a7 9906
+0000a8 0060
+0000a9 0104
+0000aa 9ee9
+0000ab 0088
+0000ac 0104
+0000ad 9707
+0000ae 0011
+0000af 0203
+0000b0 2079
+0000b1 0200
+0000b2 9c03
+0000b3 0300
+0000b4 7401
+0000b5 0090
+0000b6 0104
+0000b7 9909
+0000b8 0060
+0000b9 0105
+0000ba 1801
+0000bb 80a8
+0000bc 0600
+0000bd 0101
+0000be b521
+0000bf 8024
+0000c0 0400
+0000c1 0901
+0000c2 9066
+0000c3 0400
+0000c4 0901
+0000c5 2696
+0000c6 0400
+0000c7 f201
+0000c8 f048
+0000c9 0000                      .db 0x04, 0x01, 0x71, 0x79, 0x70, 0x00, 0x04, 0x08, 0x8e, 0x99, 0xe0, 0x00, 0x04, 0x01, 0x69, 0x89, 0x60, 0x00, 0x04, 0x01, 0x17, 0x99, 0x70, 0x00, 0x04, 0x01, 0x69, 0xf8, 0x70, 0x00, 0x03, 0x0d, 0x74, 0x90, 0x00, 0x04, 0x01, 0x79, 0x71, 0x97, 0x00, 0x04,                                  0x08, 0x8e, 0x99, 0x90, 0x00, 0x01, 0x5e, 0x00, 0x02, 0x11, 0x56, 0x00, 0x04, 0x08, 0x9a, 0xca, 0x90, 0x00, 0x01, 0x7e, 0x00, 0x06, 0x01, 0x08, 0x3e, 0x96, 0x59, 0x40, 0x00, 0x03, 0x01, 0x0d, 0x68, 0x00, 0x04, 0x01, 0x06, 0x99, 0x60, 0x00, 0x04, 0x01, 0x                                 e9, 0x9e, 0x88, 0x00, 0x04, 0x01, 0x07, 0x97, 0x11, 0x00, 0x03, 0x02, 0x79, 0x20, 0x00, 0x02, 0x03, 0x9c, 0x00, 0x03, 0x01, 0x74, 0x90, 0x00, 0x04, 0x01, 0x09, 0x99, 0x60, 0x00, 0x05, 0x01, 0x01, 0x18, 0xa8, 0x80, 0x00, 0x06, 0x01, 0x01, 0x21, 0xb5, 0x24,                                  0x80, 0x00, 0x04, 0x01, 0x09, 0x66, 0x90, 0x00, 0x04, 0x01, 0x09, 0x96, 0x26, 0x00, 0x04, 0x01, 0xf2, 0x48, 0xf0, 0x00, 0x00
+                                 
+                                 
                                  .org $0000
-000000 0405
-000001 f863
-000002 20c6
-000003 0000                      .db 0x05, 0x04, 0x63, 0xf8, 0xc6, 0x20, 0x00, 0x00
                                  
-                                 start:
-                                 	; Control Pins
+000000 ee00                      start:
+000001 b90a                      	; Control Pins
                                  	; DDRD
-000004 ee00                      	ldi r16, (1 << PIN_DISPLAY_SCE) | (1 << PIN_DISPLAY_RST) | (1 << PIN_DISPLAY_DC);	
-000005 b90a                      	out DDRD, r16
+000002 e20e                      	ldi r16, (1 << PIN_DISPLAY_SCE) | (1 << PIN_DISPLAY_RST) | (1 << PIN_DISPLAY_DC);	
+000003 b904                      	out DDRD, r16
                                  	; DDRB
-000006 e20e                      	ldi r16, (1 << PB3) | (1 << PB5) | (1 << PB2) | (1 << PB1);
-000007 b904                      	out DDRB, r16
+000004 e500                      	ldi r16, (1 << PB3) | (1 << PB5) | (1 << PB2) | (1 << PB1);
+000005 bd0c                      	out DDRB, r16
                                  	; SPI Control Register
-000008 e500                      	ldi	R16, (1 << MSTR) | (1 << SPE)
-000009 bd0c                      	out	SPCR, r16
+000006 9829                      	ldi	R16, (1 << MSTR) | (1 << SPE)
+                                 	out	SPCR, r16
                                   
-00000a 9829                      	cbi PORTB, PB1; backlight test - remove me
-                                 
+000007 985e                      	cbi PORTB, PB1; backlight test - remove me
+000008 9a5e                      
                                  	; Reset the LCD to a known state
-00000b 985e                      	cbi PORTD, PIN_DISPLAY_RST
-00000c 9a5e                      	sbi PORTD, PIN_DISPLAY_RST
-                                 
-                                 	; LCD Setup
-                                 	; Tell LCD extended commands follow
-00000d e000                      	ldi r16, LCD_COMMAND
-00000e e211                      	ldi r17, 0x21
-00000f d063                      	rcall lcdwrite
+                                 	cbi PORTD, PIN_DISPLAY_RST
+                                 	sbi PORTD, PIN_DISPLAY_RST
+000009 e000                      
+00000a e211                      	; LCD Setup
+00000b d068                      	; Tell LCD extended commands follow
+                                 	ldi r16, LCD_COMMAND
+                                 	ldi r17, 0x21
+                                 	rcall lcdwrite
                                  
                                  	; Might not be important, cutting for space...
                                  	; Set LCD Vop (Contrast)
@@ -1086,127 +1160,128 @@ C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm(8): Incl
                                  	; Might not be important, cutting for space...
                                  	; Set Temp coefficent
                                  	; ldi r17, 0x04
-                                 	; rcall lcdwrite
-                                 
+00000c e114                      	; rcall lcdwrite
+00000d d066                      
                                  	; LCD bias mode 1:48 (try 0x13)
-000010 e114                      	ldi r17, 0x14
-000011 d061                      	rcall lcdwrite
-                                 
+                                 	ldi r17, 0x14
+00000e e210                      	rcall lcdwrite
+00000f d064                      
                                  	; We must send 0x20 before modifying the display control mode
-000012 e210                      	ldi r17, 0x20
-000013 d05f                      	rcall lcdwrite
-                                 
+                                 	ldi r17, 0x20
+000010 e01c                      	rcall lcdwrite
+000011 d062                      
                                  	; Set display control, normal mode.
-000014 e01c                      	ldi r17, 0x0C
-000015 d05d                      	rcall lcdwrite
-                                 
+                                 	ldi r17, 0x0C
+000012 e211                      	rcall lcdwrite
+000013 d060                      
                                  	; Tell LCD that extended commands follow
-000016 e211                      	ldi r17, 0x21
-000017 d05b                      	rcall lcdwrite
-                                 
+                                 	ldi r17, 0x21
+000014 eb12                      	rcall lcdwrite
+000015 d05e                      
                                  	; Set LCD Vop (Contrast): Try 0xB1(good @ 3.3V) or 0xBF if your display is too dark
-000018 eb12                      	ldi r17, 0x80 | LCD_CONTRAST
-000019 d059                      	rcall lcdwrite
-                                 
+                                 	ldi r17, 0x80 | LCD_CONTRAST
+000016 e210                      	rcall lcdwrite
+000017 d05c                      
                                  	; Set display mode
-00001a e210                      	ldi r17, 0x20
-00001b d057                      	rcall lcdwrite
+000018 d031                      	ldi r17, 0x20
+                                 	rcall lcdwrite
                                  
-00001c d02c                      	rcall display_buffer_clear
+                                 	rcall display_buffer_clear
                                  
-                                 	; Send a character
+000019 d003                      	; Send a character
                                  
-                                 	; Set some pixels
-00001d d003                      	rcall text_write_character
-                                 	; Top left
-                                 	/*ldi r16, 0x00
-                                 	ldi r17, 0x00	
-                                 	rcall display_buffer_set_pixel
-                                 
-                                 	; Middle
-                                 	ldi r16, 0x18
-                                 	ldi r17, 0x2A	
-                                 	rcall display_buffer_set_pixel
-                                 
-                                 	; Bottom right
-                                 	ldi r16, 0x2F
-                                 	ldi r17, 0x53	
-                                 	rcall display_buffer_set_pixel
-                                 */
-00001e d04a                      	rcall lcdwrite_display_buffer
-                                 
-00001f 9a29                      	sbi PORTB, PB1
+00001a d04f                      	; Set some pixels
+                                 	rcall text_write_character
+00001b 9a29                      
+                                 	rcall lcdwrite_display_buffer
+00001c cfff                      
+                                 	sbi PORTB, PB1
                                  loop:
-000020 cfff                          rjmp loop
-                                 
-                                 
-                                 ; Write a single character to the display buffer
+00001d d019                          rjmp loop
+00001e 2f30                      
                                  text_write_character:
-                                 	; load the width of the character
-000021 e0f0                      	ldi ZH, 0x00
-000022 e0e0                      	ldi ZL, 0x00
-000023 9155                      	lpm r21, Z+ ; character width
+00001f 2711                      	rcall text_load_character
+000020 2700                      	mov r19, r16
                                  
-000024 2711                      	clr r17 ; x position, zeroed
-000025 2700                      	clr r16 ; y position, zereod
-000026 e078                      	ldi r23, 0x08 ; Bit position in data byte
+000021 e0d3                      	clr r17 ; x position
+000022 27cc                      	clr r16 ; y position
                                  
-                                 text_write_character_write_loop:
-000027 3078                      	cpi r23, 0x08
-000028 f421                      	brne text_write_character_next_bit
+                                 	ldi YH, 0x03  ; Buffer with uncompressed character pixel data
+000023 9129                      	clr YL
+000024 3021                      
+000025 f449                      text_write_character_next_pixel:
+000026 933f                      	ld r18, Y+
+000027 932f                      	cpi r18, 0x01
+000028 931f                      	brne text_write_character_increment
+000029 930f                      	push r19
+00002a d025                      	push r18
+00002b 910f                      	push r17
+00002c 911f                      	push r16	
+00002d 912f                      	rcall display_buffer_set_pixel
+00002e 913f                      	pop r16
+                                 	pop r17
+                                 	pop r18
+00002f 9513                      	pop r19
+000030 1713                      
+000031 f789                      text_write_character_increment:
+000032 2711                      	inc r17
+000033 9503                      	cp r17, r19
+000034 3008                      	brne text_write_character_next_pixel
+000035 f769                      	clr r17
+                                 	inc r16
+000036 9508                      	cpi r16, 0x08
+                                 	brne text_write_character_next_pixel
+                                 	
+                                 	ret
                                  
-                                 	; Load the character data byte
-000029 9165                      	lpm r22, Z+
-00002a 3060                      	cpi r22, 0x00
-00002b f0e1                      	breq text_write_character_finished
-00002c 2777                      	clr r23 ; Bit position in data byte, zereod
+                                 ; saves character bits to $0300
+000037 e0f2                      ; returns character width on r16
+000038 e0e0                      text_load_character:
+000039 9105                      	; load the width of the character
+                                 	ldi ZH, 0x02
+                                 	ldi ZL, 0x00
+00003a e0d3                      	lpm r16, Z+ ; character width
+00003b e0c0                      
+                                 	; relative position in SRAM
+                                 	ldi YH, 0x03
+00003c e010                      	ldi YL, 0x00
+00003d 9125                      
+                                 text_load_character_next_byte:
+00003e 3020                      	ldi r17, 0x00 ; bit position in data byte
+00003f f049                      	lpm r18, Z+   ; data byte
                                  
-                                 text_write_character_next_bit:
-00002d 9573                      	inc r23
-00002e 0f66                      	lsl r22 ; Shift the next bit off the data byte
-00002f f488                      	brcc text_writer_character_increment
+                                 	cpi r18, 0x00
+000040 9513                      	breq text_load_character_done
                                  
-                                 	; This bit is set! Set it in the display buffer
-000030 937f                      	push r23
-000031 936f                      	push r22
-000032 935f                      	push r21
-000033 932f                      	push r18
-000034 931f                      	push r17
-000035 930f                      	push r16
-000036 93ff                      	push ZH
-000037 93ef                      	push ZL
-000038 d016                      	rcall display_buffer_set_pixel
-000039 91ef                      	pop ZL
-00003a 91ff                      	pop ZH
-00003b 910f                      	pop r16
-00003c 911f                      	pop r17
-00003d 912f                      	pop r18
-00003e 915f                      	pop r21
-00003f 916f                      	pop r22
-000040 917f                      	pop r23
+000041 e040                      text_load_character_next_bit:
+                                 	inc r17
+000042 0f22                      
+000043 f408                      	ldi r20, 0x00
+000044 e041                      
+                                 	lsl r18
+                                 	brcc text_load_character_store
+000045 9349                      	ldi r20, 0x01
                                  
-                                 text_writer_character_increment:
-000041 9513                      	inc r17
-000042 1715                      	cp r17, r21
-000043 f719                      	brne text_write_character_write_loop
-000044 9503                      	inc r16
-000045 2711                      	clr r17 ; x position back at zero
-000046 3008                      	cpi r16, 0x08	
-000047 f6f9                      	brne text_write_character_write_loop
+000046 3018                      text_load_character_store:
+000047 f7c1                      	st Y+, r20
+000048 cff3                      
+                                 	cpi r17, 0x08
+                                 	brne text_load_character_next_bit
+000049 9508                      	rjmp text_load_character_next_byte
                                  
-                                 text_write_character_finished:
-000048 9508                      	ret
+                                 text_load_character_done:
+                                 	ret
                                  
-                                 
-                                 ; Clear the display buffer
+00004a e0f1                      
+00004b e0e0                      ; Clear the display buffer
                                  display_buffer_clear:
-000049 e0f1                      	ldi ZH, 0x01
-00004a e0e0                      	ldi ZL, 0x00
-                                 display_buffer_clear_store:
-00004b 9201                      	st Z+, r0 ; r0 is probably 0....
-00004c 30f3                      	cpi ZH, 0x03 ; clear to 0x0300, instead of 0x02F8. Saves a few words...
-00004d f7e9                      	brne display_buffer_clear_store
-00004e 9508                      	ret
+00004c 9201                      	ldi ZH, 0x01
+00004d 30f3                      	ldi ZL, 0x00
+00004e f7e9                      display_buffer_clear_store:
+00004f 9508                      	st Z+, r0 ; r0 is probably 0....
+                                 	cpi ZH, 0x03 ; clear to 0x0300, instead of 0x02F8. Saves a few words...
+                                 	brne display_buffer_clear_store
+                                 	ret
                                  
                                  ; Set an individual pixel in the display buffer
                                  ; r16 - Y
@@ -1214,98 +1289,96 @@ C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm(8): Incl
                                  display_buffer_set_pixel:
                                  	; Algorithm:
                                  	; shift = y % 8;
-                                 	; display_map[x + (y/8)*LCD_WIDTH] |= 1<<shift;
-                                 
-                                 	; divide Y by 8 (aka 3 right shifts)
-00004f 2f30                      	mov r19, r16
-000050 9535                      	asr r19 
-000051 9535                      	asr r19
-000052 9535                      	asr r19	
-                                 
-                                 	; multiply Y by LCD_WIDTH
-000053 e544                      	ldi r20, LCD_WIDTH
-000054 9f34                      	mul r19, r20
-000055 2df1                      	mov ZH, r1
-000056 2de0                      	mov ZL, r0
-                                 
-                                 	; Add X
-000057 1fe1                      	adc ZL, r17	
-000058 e041                      	ldi r20, 0x01
-000059 f408                      	brcc display_buffer_set_pixel_add_offset
-00005a 0ff4                      	add ZH, r20
-                                 
+000050 2f30                      	; display_map[x + (y/8)*LCD_WIDTH] |= 1<<shift;
+000051 9535                      
+000052 9535                      	; divide Y by 8 (aka 3 right shifts)
+000053 9535                      	mov r19, r16
+                                 	asr r19 
+                                 	asr r19
+000054 e544                      	asr r19	
+000055 9f34                      
+000056 2df1                      	; multiply Y by LCD_WIDTH
+000057 2de0                      	ldi r20, LCD_WIDTH
+                                 	mul r19, r20
+                                 	mov ZH, r1
+000058 1fe1                      	mov ZL, r0
+000059 e041                      
+00005a f408                      	; Add X
+00005b 0ff4                      	adc ZL, r17	
+                                 	ldi r20, 0x01
+                                 	brcc display_buffer_set_pixel_add_offset
+                                 	add ZH, r20
+00005c 0ff4                      
                                  	; Add display buffer memory offset, $0100
                                  display_buffer_set_pixel_add_offset:
-00005b 0ff4                      	add ZH, r20
-                                 
-                                 	; Get the bit position within the display buffer byte
+                                 	add ZH, r20
+00005d e037                      
+00005e 2303                      	; Get the bit position within the display buffer byte
                                  	; Y % 8 (aka bitmask with 0000 0111)
-00005c e037                      	ldi r19, 0x07
-00005d 2303                      	and r16, r19
-                                 
-                                 	; Build a mask from the bit position
-                                 	; Turn 2 into 0000 0100
-00005e e031                      	ldi r19, 0x01
-00005f 3000                      	cpi r16, 0x00
-000060 f021                      	breq display_buffer_set_pixel_apply_mask
-                                 display_buffer_set_pixel_shift_mask:
-000061 0f33                      	lsl r19
-000062 950a                      	dec r16
-000063 3000                      	cpi r16, 0x00
-000064 f7e1                      	brne display_buffer_set_pixel_shift_mask
+                                 	ldi r19, 0x07
+                                 	and r16, r19
+00005f e031                      
+000060 3000                      	; Build a mask from the bit position
+000061 f021                      	; Turn 2 into 0000 0100
+                                 	ldi r19, 0x01
+000062 0f33                      	cpi r16, 0x00
+000063 950a                      	breq display_buffer_set_pixel_apply_mask
+000064 3000                      display_buffer_set_pixel_shift_mask:
+000065 f7e1                      	lsl r19
+                                 	dec r16
+                                 	cpi r16, 0x00
+                                 	brne display_buffer_set_pixel_shift_mask
                                  
                                  	; Load existing value from memory
-                                 	; Apply the bitmask
-                                 	; Store back to memory
-                                 display_buffer_set_pixel_apply_mask:	 
-000065 8140                      	ld r20, Z
-000066 2b43                      	or r20, r19	
-000067 8340                      	st Z, r20
-000068 9508                      	ret
+000066 8140                      	; Apply the bitmask
+000067 2b43                      	; Store back to memory
+000068 8340                      display_buffer_set_pixel_apply_mask:	 
+000069 9508                      	ld r20, Z
+                                 	or r20, r19	
+                                 	st Z, r20
+                                 	ret
                                  
-                                 ; Write display buffer to the LCD
-                                 lcdwrite_display_buffer:
+00006a e0f1                      ; Write display buffer to the LCD
+00006b e0e0                      lcdwrite_display_buffer:
                                  	; Set memory position at start of display buffer, $0100
-000069 e0f1                      	ldi ZH, 0x01
-00006a e0e0                      	ldi ZL, 0x00	
+                                 	ldi ZH, 0x01
+                                 	ldi ZL, 0x00	
+00006c 9111                      
+00006d e001                      	; Loop through the buffer, sending each value to the LCD
+00006e d005                      lcdwrite_display_buffer_byte:
+                                 	ld r17, Z+
+                                 	ldi r16, LCD_DATA
+00006f 30f2                      	rcall lcdwrite
+000070 f7d9                      
+000071 3fe8                      	; Stop if we're at the end, 84x48 + 0x0100 => 0x02F8
+000072 f7c9                      	cpi ZH, 0x02
+000073 9508                      	brne lcdwrite_display_buffer_byte
+                                 	cpi ZL, 0xF8
+                                 	brne lcdwrite_display_buffer_byte
+                                 	ret
                                  
-                                 	; Loop through the buffer, sending each value to the LCD
-                                 lcdwrite_display_buffer_byte:
-00006b 9111                      	ld r17, Z+
-00006c e001                      	ldi r16, LCD_DATA
-00006d d005                      	rcall lcdwrite
-                                 
-                                 	; Stop if we're at the end, 84x48 + 0x0100 => 0x02F8
-00006e 30f2                      	cpi ZH, 0x02
-00006f f7d9                      	brne lcdwrite_display_buffer_byte
-000070 3fe8                      	cpi ZL, 0xF8
-000071 f7c9                      	brne lcdwrite_display_buffer_byte
-000072 9508                      	ret
-                                 
-                                 ; r16 - write_type (LCD_COMMAND or LCD_DATA)
+000074 9a5d                      ; r16 - write_type (LCD_COMMAND or LCD_DATA)
                                  ; r17 - data
-                                 lcdwrite: 
-000073 9a5d                      	sbi PORTD, PIN_DISPLAY_DC ; Set D/C line high as a default (sending data) to save some space
-                                 	; But check if that's really the right choice...
-000074 3001                      	cpi r16, LCD_DATA
-000075 f009                      	breq lcdwrite_send_data ; Yup, we're sending data? We're already good.
-000076 985d                      	cbi PORTD, PIN_DISPLAY_DC ; Actually we're sending a command. Set the D/C line low
-                                 
+000075 3001                      lcdwrite: 
+000076 f009                      	sbi PORTD, PIN_DISPLAY_DC ; Set D/C line high as a default (sending data) to save some space
+000077 985d                      	; But check if that's really the right choice...
+                                 	cpi r16, LCD_DATA
+                                 	breq lcdwrite_send_data ; Yup, we're sending data? We're already good.
+                                 	cbi PORTD, PIN_DISPLAY_DC ; Actually we're sending a command. Set the D/C line low
+000078 985f                      
                                  lcdwrite_send_data:
                                  	; Set chip select low
-000077 985f                      	cbi PORTD, PIN_DISPLAY_SCE
+000079 bd1e                      	cbi PORTD, PIN_DISPLAY_SCE
                                  
                                  	; Send the data
-000078 bd1e                      	out		SPDR, r17
-                                 
-                                 	; Wait for data to send
-                                 lcdwrite_wait:
-000079 b50d                      	in		r16, SPSR
-00007a ff07                      	sbrs	r16, SPIF
-00007b cffd                      	rjmp	lcdwrite_wait
-                                 
-                                 	; Set chip select high
-00007c 9a5f                      	sbi PORTD, PIN_DISPLAY_SCE
+                                 	out		SPDR, r17
+00007a b50d                      
+00007b ff07                      	; Wait for data to send
+00007c cffd                      lcdwrite_wait:
+                                 	in		r16, SPSR
+                                 	sbrs	r16, SPIF
+00007d 9a5f                      	rjmp	lcdwrite_wait
+00007e 9508                      
 
 
 RESOURCE USE INFORMATION
@@ -1323,11 +1396,11 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 "ATmega328P" register use summary:
-x  :   0 y  :   0 z  :   6 r0 :   2 r1 :   1 r2 :   0 r3 :   0 r4 :   0 
+x  :   0 y  :   2 z  :   6 r0 :   2 r1 :   1 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  21 r17:  16 r18:   2 r19:  10 r20:   8 
-r21:   4 r22:   5 r23:   6 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
-r29:   0 r30:   8 r31:  10 
+r13:   0 r14:   0 r15:   0 r16:  23 r17:  19 r18:   7 r19:  14 r20:  11 
+r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   2 
+r29:   2 r30:   6 r31:   8 
 Registers used: 13 out of 35 (37.1%)
 
 "ATmega328P" instruction use summary:
@@ -1335,27 +1408,27 @@ Registers used: 13 out of 35 (37.1%)
 andi  :   0 asr   :   3 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
 brcc  :   2 brcs  :   0 break :   0 breq  :   3 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :   7 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brne  :   8 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   4 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   4 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   1 cpc   :   0 
-cpi   :   9 cpse  :   0 dec   :   1 eor   :   0 fmul  :   0 fmuls :   0 
+cpi   :  10 cpse  :   0 dec   :   1 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   1 inc   :   3 jmp   :   0 
-ld    :   2 ldd   :   0 ldi   :  23 lds   :   0 lpm   :   2 lsl   :   2 
-lsr   :   0 mov   :   3 movw  :   0 mul   :   1 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   0 or    :   1 ori   :   0 out   :   4 pop   :   8 
-push  :   8 rcall :  12 ret   :   5 reti  :   0 rjmp  :   2 rol   :   0 
+ld    :   3 ldd   :   0 ldi   :  28 lds   :   0 lpm   :   2 lsl   :   2 
+lsr   :   0 mov   :   4 movw  :   0 mul   :   1 muls  :   0 mulsu :   0 
+neg   :   0 nop   :   0 or    :   1 ori   :   0 out   :   4 pop   :   4 
+push  :   4 rcall :  13 ret   :   6 reti  :   0 rjmp  :   3 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   4 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   1 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
-sez   :   0 sleep :   0 spm   :   0 st    :   2 std   :   0 sts   :   0 
+sez   :   0 sleep :   0 spm   :   0 st    :   3 std   :   0 sts   :   0 
 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
 Instructions used: 30 out of 113 (26.5%)
 
 "ATmega328P" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0000fc    244      8    252   32768   0.8%
+[.cseg] 0x000000 0x000194    254    148    402   32768   1.2%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 
