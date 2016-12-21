@@ -18,8 +18,7 @@
 .equ LCD_HEIGHT = 48
 
 .org $0000
-.db 0x01, 0x7a, 0x00, 0x00
-
+.db 0x05, 0x04, 0x63, 0xf8, 0xc6, 0x20, 0x00, 0x00
 
 start:
 	; Control Pins
@@ -81,27 +80,75 @@ start:
 
 	rcall display_buffer_clear
 
+	; Send a character
+
 	; Set some pixels
-	; Top left
-	ldi r16, 0x00
-	ldi r17, 0x00	
-	rcall display_buffer_set_pixel
-
-	; Middle
-	ldi r16, 0x18
-	ldi r17, 0x2A	
-	rcall display_buffer_set_pixel
-
-	; Bottom right
-	ldi r16, 0x2F
-	ldi r17, 0x53	
-	rcall display_buffer_set_pixel
+	rcall text_write_character
 
 	rcall lcdwrite_display_buffer
 
 	sbi PORTB, PB1
 loop:
     rjmp loop
+
+
+; Write a single character to the display buffer
+text_write_character:
+	; load the width of the character
+	ldi ZH, 0x00
+	ldi ZL, 0x00
+	lpm r21, Z+ ; character width
+
+	clr r17 ; x position, zeroed
+	clr r16 ; y position, zereod
+	ldi r23, 0x08 ; Bit position in data byte
+
+text_write_character_write_loop:
+	cpi r23, 0x08
+	brne text_write_character_next_bit
+
+	; Load the character data byte
+	lpm r22, Z+
+	cpi r22, 0x00
+	breq text_write_character_finished
+	clr r23 ; Bit position in data byte, zereod
+
+text_write_character_next_bit:
+	inc r23
+	lsl r22 ; Shift the next bit off the data byte
+	brcc text_writer_character_increment
+
+	; This bit is set! Set it in the display buffer
+	push r23
+	push r22
+	push r21
+	push r18
+	push r17
+	push r16
+	push ZH
+	push ZL
+	rcall display_buffer_set_pixel
+	pop ZL
+	pop ZH
+	pop r16
+	pop r17
+	pop r18
+	pop r21
+	pop r22
+	pop r23
+
+text_writer_character_increment:
+	inc r17
+	cp r17, r21
+	brne text_write_character_write_loop
+	inc r16
+	clr r17 ; x position back at zero
+	cpi r16, 0x08	
+	brne text_write_character_write_loop
+
+text_write_character_finished:
+	ret
+
 
 ; Clear the display buffer
 display_buffer_clear:
