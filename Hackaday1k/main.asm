@@ -4,6 +4,11 @@
 ; Created: 12/18/2016 9:40:35 PM
 ; Author : Zach
 ;
+;
+; SRAM
+; $0100 - $02FF ; Display Buffer
+; $0300 - $033F ; Current Pixel Buffer
+; $0340 - $03A0 ; Message Buffer
 
 .include "M328PDEF.INC"
 
@@ -16,6 +21,8 @@
 .equ LCD_CONTRAST = 50
 .equ LCD_WIDTH = 84
 .equ LCD_HEIGHT = 48
+
+.cseg
 
 .org $0200
 tinyfont:
@@ -84,10 +91,10 @@ start:
 
 	rcall display_buffer_clear
 
-	; Send a character
+	rcall init_message
 
 	; Set some pixels
-	rcall text_write_character
+	rcall text_write_string
 
 	rcall lcdwrite_display_buffer
 
@@ -95,13 +102,97 @@ start:
 loop:
     rjmp loop
 
+init_message:
+	ldi ZH, 0x03
+	ldi ZL, 0x40
+	ldi r16, 'h'
+	st Z+, r16
+	ldi r16, 'e'
+	st Z+, r16
+	ldi r16, 'l'
+	st Z+, r16
+	ldi r16, 'l'
+	st Z+, r16
+	ldi r16, 'o'
+	st Z+, r16
+	ldi r16, ' '
+	st Z+, r16
+	ldi r16, 'w'
+	st Z+, r16
+	ldi r16, 'o'
+	st Z+, r16
+	ldi r16, 'r'
+	st Z+, r16
+	ldi r16, 'l'
+	st Z+, r16
+	ldi r16, 'd'
+	st Z+, r16
+	ldi r16, 0x00
+	st Z+, r16
+	ret
+
+// 
+text_write_string:
+	ldi r18, 0x00 ; x position
+	ldi r17, 0x00 ; y position
+	
+	ldi ZH, 0x03 ; starting message buffer
+	ldi ZL, 0x40
+
+text_write_string_load_next_character:
+	; Load the next character from the buffer
+	ld r16, Z+
+	cpi r16, 0x00
+	breq text_write_string_end ; buffer finished?
+
+	cpi r16, 0x20 ; space?
+	brne text_write_string_write_character
+	ldi r19, 0x04
+	add r18, r19
+	rjmp text_write_string_check_newline
+
+text_write_string_write_character:
+	push ZH
+	push ZL
+	push r18
+	push r17
+	rcall text_write_character
+	pop r17
+	pop r18
+	pop ZL
+	pop ZH
+	add r18, r16 ; increment x position
+	inc r18
+
+text_write_string_check_newline:
+	rjmp text_write_string_load_next_character
+
+text_write_string_end:
+	ret
+
+// Write an individual character to the display
+// Inputs:
+// r16 - ASCII character to write
+// r17 - Starting Y Position
+// r18 - Starting X Position
+//
+// Outputs:
+// r16 - Character width
 text_write_character:
+	push r18 ; push starting X/Y positions onto the stack
+	push r17
+	
 	rcall text_load_character
-	mov r19, r16
+	mov r19, r16 ; character width
 
-	clr r17 ; x position
-	clr r16 ; y position
+	; Restore starting x/y positions from the stack
+	; pop r20 ; starting y position
+	;pop r21 ; starting x position
+	pop r16 ; y position
+	pop r17 ; x position
+	mov r20, r17 ; keep track of the starting X position
 
+	
 	ldi YH, 0x03  ; Buffer with uncompressed character pixel data
 	clr YL
 
@@ -109,6 +200,7 @@ text_write_character_next_pixel:
 	ld r18, Y+
 	cpi r18, 0x01
 	brne text_write_character_increment
+	push r20
 	push r19
 	push r18
 	push r17
@@ -118,24 +210,54 @@ text_write_character_next_pixel:
 	pop r17
 	pop r18
 	pop r19
+	pop r20
 
 text_write_character_increment:
-	inc r17
-	cp r17, r19
+	inc r17		 ; increment X position
+	; subtract from the starting position to determine how far in we are
+	mov r21, r17 
+	sub r21, r20
+	cp r21, r19	 ; compare this distance to the character width to see if we're at the end
 	brne text_write_character_next_pixel
-	clr r17
-	inc r16
-	cpi r16, 0x08
+	; At the end of the line
+	mov r17, r20  ; move X back to the beginning of the character
+	inc r16		  ; increment Y
+	cpi r16, 0x08 ; check if we're at the bottom of the character
 	brne text_write_character_next_pixel
 	
+	mov r16, r19
 	ret
 
 ; saves character bits to $0300
+;
+; Inputs:
+; r16 - ASCII character to write
+;
+; Outputs:
 ; returns character width on r16
 text_load_character:
 	; load the width of the character
 	ldi ZH, 0x04
 	ldi ZL, 0x00
+
+	; Loop to the position of the ASCII character
+	; Subtract from the starting character
+	; Then loop over program memory until looking for 0x00 until r16 is 0
+	subi r16, 0x61 ; Starts at lowercase A, 0x61
+	cpi r16, 0x00
+	breq text_load_character_width
+	
+text_load_character_seek_next_byte:
+	lpm r17, Z+ ; character width
+	cpi r17, 0x00
+	brne text_load_character_seek_next_byte
+
+	subi r16, 0x01
+	cpi r16, 0x00
+	brne text_load_character_seek_next_byte
+	
+
+text_load_character_width:
 	lpm r16, Z+ ; character width
 
 	; relative position in SRAM
