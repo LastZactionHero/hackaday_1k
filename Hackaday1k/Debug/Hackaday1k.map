@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Wed Dec 21 09:56:51 2016
+AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Mon Dec 26 18:05:56 2016
 
 
 EQU  SIGNATURE_000 0000001e
@@ -703,7 +703,7 @@ EQU  LCD_DATA     00000001
 EQU  LCD_CONTRAST 00000032
 EQU  LCD_WIDTH    00000054
 EQU  LCD_HEIGHT   00000030
-CSEG tinyfont     00000080
+CSEG tinyfont     00000200
 CSEG start        00000000
 CSEG lcdwrite     00000074
 CSEG display_buffer_clear 0000004a
