@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Mon Dec 26 20:29:26 2016
+AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Tue Dec 27 21:51:33 2016
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\m328pdef.inc'
 C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm(13): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\M328PDEF.INC'
@@ -1057,455 +1057,608 @@ C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm(13): Inc
                                  
                                  .org $0200
                                  tinyfont:
-000200 0104
-000201 7971
-000202 0070
-000203 0804
-000204 998e
-000205 00e0
-000206 0104
-000207 8969
-000208 0060
-000209 0104
-00020a 9917
-00020b 0070
-00020c ff04
-00020d f869
-00020e 0070
-00020f 0d03
-000210 9074
-000211 0400
-000212 7901
-000213 9771
-000214 0400
-000215 8e08
-000216 9099
-000217 0100
-000218 005e
-000219 1102
-00021a 0056
-00021b 0804
-00021c ca9a
-00021d 0090
-00021e 7e01
-00021f 0600
-000220 0801
-000221 963e
-000222 4059
-000223 0300
-000224 0d01
-000225 0068
-000226 ff04
-000227 9906
+000200 7a01
+000201 0100
+000202 0002
+000203 0201
+000204 0100
+000205 0002
+000206 0201
+000207 0100
+000208 0002
+000209 0201
+00020a 0100
+00020b 0002
+00020c 0201
+00020d 0100
+00020e 0002
+00020f 0201
+000210 0100
+000211 0002
+000212 ff03
+000213 ff0e
+000214 0100
+000215 0002
+000216 0201
+000217 0400
+000218 9906
+000219 6099
+00021a 0300
+00021b 9207
+00021c 0048
+00021d 0604
+00021e 6891
+00021f 00f0
+000220 0604
+000221 1992
+000222 0060
+000223 0904
+000224 f199
+000225 0010
+000226 0f04
+000227 198e
 000228 0060
-000229 0104
-00022a 9ee9
-00022b 0088
-00022c 0104
-00022d 9707
-00022e 0011
-00022f 0203
-000230 2079
-000231 0200
-000232 9c03
-000233 0300
-000234 7401
-000235 0090
-000236 0104
-000237 9909
-000238 0060
-000239 0105
-00023a 1801
-00023b 80a8
-00023c 0600
-00023d ffff
-00023e b521
-00023f 8024
-000240 0400
-000241 0901
-000242 9066
-000243 0400
-000244 0901
-000245 2696
-000246 0400
-000247 f201
-000248 f048
-000249 0000                      .db 0x04, 0x01, 0x71, 0x79, 0x70, 0x00, 0x04, 0x08, 0x8e, 0x99, 0xe0, 0x00, 0x04, 0x01, 0x69, 0x89, 0x60, 0x00, 0x04, 0x01, 0x17, 0x99, 0x70, 0x00, 0x04, 0xFF, 0x69, 0xf8, 0x70, 0x00, 0x03, 0x0d, 0x74, 0x90, 0x00, 0x04, 0x01, 0x79, 0x71, 0x97, 0x00, 0x04,                                  0x08, 0x8e, 0x99, 0x90, 0x00, 0x01, 0x5e, 0x00, 0x02, 0x11, 0x56, 0x00, 0x04, 0x08, 0x9a, 0xca, 0x90, 0x00, 0x01, 0x7e, 0x00, 0x06, 0x01, 0x08, 0x3e, 0x96, 0x59, 0x40, 0x00, 0x03, 0x01, 0x0d, 0x68, 0x00, 0x04, 0xFF, 0x06, 0x99, 0x60, 0x00, 0x04, 0x01, 0x                                 e9, 0x9e, 0x88, 0x00, 0x04, 0x01, 0x07, 0x97, 0x11, 0x00, 0x03, 0x02, 0x79, 0x20, 0x00, 0x02, 0x03, 0x9c, 0x00, 0x03, 0x01, 0x74, 0x90, 0x00, 0x04, 0x01, 0x09, 0x99, 0x60, 0x00, 0x05, 0x01, 0x01, 0x18, 0xa8, 0x80, 0x00, 0x06, 0xFF, 0xFF, 0x21, 0xb5, 0x24,                                  0x80, 0x00, 0x04, 0x01, 0x09, 0x66, 0x90, 0x00, 0x04, 0x01, 0x09, 0x96, 0x26, 0x00, 0x04, 0x01, 0xf2, 0x48, 0xf0, 0x00, 0x00
-                                 
-                                 
+000229 0604
+00022a 998e
+00022b 0060
+00022c 0f04
+00022d 4412
+00022e 0040
+00022f 0604
+000230 9996
+000231 0060
+000232 0604
+000233 7199
+000234 0060
+000235 1201
+000236 0000
+000237 0000
+000238 0400
+000239 9106
+00023a 2020
+00023b 0000
+00023c 0105
+00023d af14
+00023e 20c6
+00023f 0500
+000240 a307
+000241 c7e8
+000242 00c0
+000243 0305
+000244 08a3
+000245 c045
+000246 0500
+000247 a307
+000248 c718
+000249 00c0
+00024a 0f04
+00024b 888e
+00024c 00f0
+00024d 0f04
+00024e 888e
+00024f 0080
+000250 0305
+000251 09a3
+000252 c0c5
+000253 0500
+000254 6304
+000255 c6f8
+000256 0020
+000257 7e01
+000258 0300
+000259 9304
+00025a 0078
+00025b 0405
+00025c 4e65
+00025d 204a
+00025e 0400
+00025f 8808
+000260 f088
+000261 0700
+000262 0701
+000263 5a1d
+000264 64b5
+000265 0080
+000266 0405
+000267 5973
+000268 20c6
+000269 0600
+00026a e801
+00026b 8661
+00026c 8017
+00026d 0400
+00026e 9f0f
+00026f 8088
+000270 0600
+000271 c801
+000272 8aa2
+000273 8167
+000274 0500
+000275 a307
+000276 461f
+000277 0020
+000278 0305
+000279 83a2
+00027a c045
+00027b 0500
+00027c c807
+00027d 1042
+00027e 0080
+00027f 0405
+000280 1863
+000281 c0c5
+000282 0500
+000283 6304
+000284 a818
+000285 0080
+000286 0107
+000287 ad26
+000288 a85a
+000289 ff91
+00028a 0500
+00028b 5404
+00028c 2a42
+00028d 0020
+00028e 0405
+00028f 1763
+000290 8010
+000291 0500
+000292 c207
+000293 4366
+000294 00e0
+000295 0201
+000296 0100
+000297 0002
+000298 0201
+000299 0100
+00029a 0002
+00029b 0201
+00029c 0100
+00029d 0002
+00029e ff04
+00029f 7971
+0002a0 0070
+0002a1 0804
+0002a2 998e
+0002a3 00e0
+0002a4 ff04
+0002a5 8969
+0002a6 0060
+0002a7 0104
+0002a8 9917
+0002a9 0070
+0002aa ff04
+0002ab f869
+0002ac 0070
+0002ad 0d03
+0002ae 9074
+0002af 0400
+0002b0 79ff
+0002b1 9771
+0002b2 0400
+0002b3 8e08
+0002b4 9099
+0002b5 0100
+0002b6 005e
+0002b7 1102
+0002b8 0056
+0002b9 0804
+0002ba ca9a
+0002bb 0090
+0002bc 7e01
+0002bd 0600
+0002be 08ff
+0002bf 963e
+0002c0 4059
+0002c1 0300
+0002c2 0dff
+0002c3 0068
+0002c4 ff04
+0002c5 9906
+0002c6 0060
+0002c7 ff04
+0002c8 9ee9
+0002c9 0088
+0002ca ff04
+0002cb 9707
+0002cc 0011
+0002cd 0203
+0002ce 2079
+0002cf 0200
+0002d0 9c03
+0002d1 0300
+0002d2 7401
+0002d3 0090
+0002d4 ff04
+0002d5 9909
+0002d6 0060
+0002d7 ff05
+0002d8 1801
+0002d9 80a8
+0002da 0600
+0002db ffff
+0002dc b521
+0002dd 8024
+0002de 0400
+0002df 09ff
+0002e0 9066
+0002e1 0400
+0002e2 09ff
+0002e3 2696
+0002e4 0400
+0002e5 f2ff
+0002e6 f048
+0002e7 0000                      .db 0x01, 0x7a, 0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x03, 0xff, 0x0e, 0xff, 0x00, 0x01,                                  0x02, 0x00, 0x01, 0x02, 0x00, 0x04, 0x06, 0x99, 0x99, 0x60, 0x00, 0x03, 0x07, 0x92, 0x48, 0x00, 0x04, 0x06, 0x91, 0x68, 0xf0, 0x00, 0x04, 0x06, 0x92, 0x19, 0x60, 0x00, 0x04, 0x09, 0x99, 0xf1, 0x10, 0x00, 0x04, 0x0f, 0x8e, 0x19, 0x60, 0x00, 0x04, 0x06, 0x                                 8e, 0x99, 0x60, 0x00, 0x04, 0x0f, 0x12, 0x44, 0x40, 0x00, 0x04, 0x06, 0x96, 0x99, 0x60, 0x00, 0x04, 0x06, 0x99, 0x71, 0x60, 0x00, 0x01, 0x12, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04, 0x06, 0x91, 0x20, 0x20, 0x00, 0x00, 0x05, 0x01, 0x14, 0xaf, 0xc6, 0x20, 0x00,                                  0x05, 0x07, 0xa3, 0xe8, 0xc7, 0xc0, 0x00, 0x05, 0x03, 0xa3, 0x08, 0x45, 0xc0, 0x00, 0x05, 0x07, 0xa3, 0x18, 0xc7, 0xc0, 0x00, 0x04, 0x0f, 0x8e, 0x88, 0xf0, 0x00, 0x04, 0x0f, 0x8e, 0x88, 0x80, 0x00, 0x05, 0x03, 0xa3, 0x09, 0xc5, 0xc0, 0x00, 0x05, 0x04, 0x                                 63, 0xf8, 0xc6, 0x20, 0x00, 0x01, 0x7e, 0x00, 0x03, 0x04, 0x93, 0x78, 0x00, 0x05, 0x04, 0x65, 0x4e, 0x4a, 0x20, 0x00, 0x04, 0x08, 0x88, 0x88, 0xf0, 0x00, 0x07, 0x01, 0x07, 0x1d, 0x5a, 0xb5, 0x64, 0x80, 0x00, 0x05, 0x04, 0x73, 0x59, 0xc6, 0x20, 0x00, 0x06,                                  0x01, 0xe8, 0x61, 0x86, 0x17, 0x80, 0x00, 0x04, 0x0f, 0x9f, 0x88, 0x80, 0x00, 0x06, 0x01, 0xc8, 0xa2, 0x8a, 0x67, 0x81, 0x00, 0x05, 0x07, 0xa3, 0x1f, 0x46, 0x20, 0x00, 0x05, 0x03, 0xa2, 0x83, 0x45, 0xc0, 0x00, 0x05, 0x07, 0xc8, 0x42, 0x10, 0x80, 0x00, 0x                                 05, 0x04, 0x63, 0x18, 0xc5, 0xc0, 0x00, 0x05, 0x04, 0x63, 0x18, 0xa8, 0x80, 0x00, 0x07, 0x01, 0x26, 0xad, 0x5a, 0xa8, 0x91, 0xff, 0x00, 0x05, 0x04, 0x54, 0x42, 0x2a, 0x20, 0x00, 0x05, 0x04, 0x63, 0x17, 0x10, 0x80, 0x00, 0x05, 0x07, 0xc2, 0x66, 0x43, 0xe0,                                  0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x04, 0xff, 0x71, 0x79, 0x70, 0x00, 0x04, 0x08, 0x8e, 0x99, 0xe0, 0x00, 0x04, 0xff, 0x69, 0x89, 0x60, 0x00, 0x04, 0x01, 0x17, 0x99, 0x70, 0x000000 ee00                      00, 0x04, 0xff, 0x69, 0xf8, 0x70, 0x00, 0x03, 0x0d, 0x74, 0x90, 0x00, 0x04, 0xff, 0x79, 0x71, 0x97, 0x00, 0x04, 0x08, 0x8e, 0x99, 0x90, 0x00, 0x01, 0x5e, 0x00, 0x02, 0x11, 0x56, 0x00, 0x04, 0x08, 0x9a, 0xca, 0x90, 0x00, 0x01, 0x7e, 0x00, 0x06, 0xff, 0x08,000001 b90a                       0x3e, 0x96, 0x59, 0x40, 0x00, 0x03, 0xff, 0x0d, 0x68, 0x00, 0x04, 0xff, 0x06, 0x99, 0x60, 0x00, 0x04, 0xff, 0xe9, 0x9e, 0x88, 0x00, 0x04, 0xff, 0x07, 0x97, 0x11, 0x00, 0x03, 0x02, 0x79, 0x20, 0x00, 0x02, 0x03, 0x9c, 0x00, 0x03, 0x01, 0x74, 0x90, 0x00, 0x                                 04, 0xff, 0x09, 0x99, 0x60, 0x00, 0x05, 0xff, 0x01, 0x18, 0xa8, 0x80, 0x00, 0x06, 0xff, 0xff, 0x21, 0xb5, 0x24, 0x80, 0x00, 0x04, 0xff, 0x09, 0x66, 0x90, 0x00, 0x04, 0xff, 0x09, 0x96, 0x26, 0x00, 0x04, 0xff, 0xf2, 0x48, 0xf0, 0x00, 0x00
+000002 e20e                      
+000003 b904                      
                                  .org $0000
-                                 
-000000 ee00                      start:
-000001 b90a                      	; Control Pins
-                                 	; DDRD
-000002 e20e                      	ldi r16, (1 << PIN_DISPLAY_SCE) | (1 << PIN_DISPLAY_RST) | (1 << PIN_DISPLAY_DC);	
-000003 b904                      	out DDRD, r16
-                                 	; DDRB
-000004 e500                      	ldi r16, (1 << PB3) | (1 << PB5) | (1 << PB2) | (1 << PB1);
-000005 bd0c                      	out DDRB, r16
+000004 e500                      
+000005 bd0c                      start:
+                                 	; Control Pins
+000006 9829                      	; DDRD
+                                 	ldi r16, (1 << PIN_DISPLAY_SCE) | (1 << PIN_DISPLAY_RST) | (1 << PIN_DISPLAY_DC);	
+                                 	out DDRD, r16
+000007 985e                      	; DDRB
+000008 9a5e                      	ldi r16, (1 << PB3) | (1 << PB5) | (1 << PB2) | (1 << PB1);
+                                 	out DDRB, r16
                                  	; SPI Control Register
-000006 9829                      	ldi	R16, (1 << MSTR) | (1 << SPE)
-                                 	out	SPCR, r16
-                                  
-000007 985e                      	cbi PORTB, PB1; backlight test - remove me
-000008 9a5e                      
+                                 	ldi	R16, (1 << MSTR) | (1 << SPE)
+000009 e000                      	out	SPCR, r16
+00000a e211                       
+00000b d0b3                      	cbi PORTB, PB1; backlight test - remove me
+                                 
                                  	; Reset the LCD to a known state
                                  	cbi PORTD, PIN_DISPLAY_RST
                                  	sbi PORTD, PIN_DISPLAY_RST
-000009 e000                      
-00000a e211                      	; LCD Setup
-00000b d0b1                      	; Tell LCD extended commands follow
+                                 
+                                 	; LCD Setup
+                                 	; Tell LCD extended commands follow
                                  	ldi r16, LCD_COMMAND
                                  	ldi r17, 0x21
                                  	rcall lcdwrite
                                  
                                  	; Might not be important, cutting for space...
-                                 	; Set LCD Vop (Contrast)
-                                 	; ldi r17, 0xB0
+00000c e114                      	; Set LCD Vop (Contrast)
+00000d d0b1                      	; ldi r17, 0xB0
                                  	; rcall lcdwrite
                                  
-                                 	; Might not be important, cutting for space...
-                                 	; Set Temp coefficent
+00000e e210                      	; Might not be important, cutting for space...
+00000f d0af                      	; Set Temp coefficent
                                  	; ldi r17, 0x04
-00000c e114                      	; rcall lcdwrite
-00000d d0af                      
-                                 	; LCD bias mode 1:48 (try 0x13)
+                                 	; rcall lcdwrite
+000010 e01c                      
+000011 d0ad                      	; LCD bias mode 1:48 (try 0x13)
                                  	ldi r17, 0x14
-00000e e210                      	rcall lcdwrite
-00000f d0ad                      
-                                 	; We must send 0x20 before modifying the display control mode
-                                 	ldi r17, 0x20
-000010 e01c                      	rcall lcdwrite
-000011 d0ab                      
-                                 	; Set display control, normal mode.
-                                 	ldi r17, 0x0C
-000012 e211                      	rcall lcdwrite
-000013 d0a9                      
-                                 	; Tell LCD that extended commands follow
-                                 	ldi r17, 0x21
-000014 eb12                      	rcall lcdwrite
-000015 d0a7                      
-                                 	; Set LCD Vop (Contrast): Try 0xB1(good @ 3.3V) or 0xBF if your display is too dark
-                                 	ldi r17, 0x80 | LCD_CONTRAST
-000016 e210                      	rcall lcdwrite
-000017 d0a5                      
-                                 	; Set display mode
-000018 d07a                      	ldi r17, 0x20
                                  	rcall lcdwrite
-000019 d004                      
-                                 	rcall display_buffer_clear
+000012 e211                      
+000013 d0ab                      	; We must send 0x20 before modifying the display control mode
+                                 	ldi r17, 0x20
+                                 	rcall lcdwrite
+000014 eb12                      
+000015 d0a9                      	; Set display control, normal mode.
+                                 	ldi r17, 0x0C
+                                 	rcall lcdwrite
+000016 e210                      
+000017 d0a7                      	; Tell LCD that extended commands follow
+                                 	ldi r17, 0x21
+000018 d07c                      	rcall lcdwrite
                                  
-00001a d01e                      	rcall init_message
-                                 
-00001b d097                      	; Set some pixels
-                                 	rcall text_write_string
+000019 d004                      	; Set LCD Vop (Contrast): Try 0xB1(good @ 3.3V) or 0xBF if your display is too dark
+                                 	ldi r17, 0x80 | LCD_CONTRAST
+                                 	rcall lcdwrite
+00001a d020                      
+                                 	; Set display mode
+00001b d099                      	ldi r17, 0x20
+                                 	rcall lcdwrite
 00001c 9a29                      
-                                 	rcall lcdwrite_display_buffer
+                                 	rcall display_buffer_clear
 00001d cfff                      
-                                 	sbi PORTB, PB1
-                                 loop:
-00001e e0f3                          rjmp loop
-00001f e4e0                      
-000020 e608                      init_message:
-000021 9301                      	ldi ZH, 0x03
-000022 e605                      	ldi ZL, 0x40
-000023 9301                      	ldi r16, 'h'
-000024 e60c                      	st Z+, r16
-000025 9301                      	ldi r16, 'e'
-000026 e60c                      	st Z+, r16
-000027 9301                      	ldi r16, 'l'
-000028 e60f                      	st Z+, r16
-000029 9301                      	ldi r16, 'l'
-00002a e200                      	st Z+, r16
-00002b 9301                      	ldi r16, 'o'
-00002c e707                      	st Z+, r16
-00002d 9301                      	ldi r16, ' '
-00002e e60f                      	st Z+, r16
-00002f 9301                      	ldi r16, 'w'
-000030 e702                      	st Z+, r16
-000031 9301                      	ldi r16, 'o'
-000032 e60c                      	st Z+, r16
-000033 9301                      	ldi r16, 'r'
-000034 e604                      	st Z+, r16
-000035 9301                      	ldi r16, 'l'
-000036 e000                      	st Z+, r16
-000037 9301                      	ldi r16, 'd'
-000038 9508                      	st Z+, r16
-                                 	ldi r16, 0x00
+                                 	rcall init_message
+                                 
+00001e e0f3                      	; Set some pixels
+00001f e4e0                      	rcall text_write_string
+000020 e408                      
+000021 9301                      	rcall lcdwrite_display_buffer
+000022 e605                      
+000023 9301                      	sbi PORTB, PB1
+000024 e60c                      loop:
+000025 9301                          rjmp loop
+000026 e60c                      
+000027 9301                      init_message:
+000028 e60f                      	ldi ZH, 0x03
+000029 9301                      	ldi ZL, 0x40
+00002a e200                      	ldi r16, 'H'
+00002b 9301                      	st Z+, r16
+00002c e507                      	ldi r16, 'e'
+00002d 9301                      	st Z+, r16
+00002e e60f                      	ldi r16, 'l'
+00002f 9301                      	st Z+, r16
+000030 e702                      	ldi r16, 'l'
+000031 9301                      	st Z+, r16
+000032 e60c                      	ldi r16, 'o'
+000033 9301                      	st Z+, r16
+000034 e604                      	ldi r16, ' '
+000035 9301                      	st Z+, r16
+000036 e201                      	ldi r16, 'W'
+000037 9301                      	st Z+, r16
+000038 e000                      	ldi r16, 'o'
+000039 9301                      	st Z+, r16
+00003a 9508                      	ldi r16, 'r'
+                                 	st Z+, r16
+                                 	ldi r16, 'l'
+                                 	st Z+, r16
+00003b e020                      	ldi r16, 'd'
+00003c e010                      	st Z+, r16
+                                 	ldi r16, '!'
+00003d e0f3                      	st Z+, r16
+00003e e4e0                      	ldi r16, 0x00
                                  	st Z+, r16
                                  	ret
-000039 e020                      
-00003a e010                      // 
-                                 text_write_string:
-00003b e0f3                      	ldi r18, 0x00 ; x position
-00003c e4e0                      	ldi r17, 0x00 ; y position
-                                 	
-                                 	ldi ZH, 0x03 ; starting message buffer
-                                 	ldi ZL, 0x40
-00003d 9101                      
-00003e 3000                      text_write_string_load_next_character:
-00003f f089                      	; Load the next character from the buffer
+                                 
+00003f 9101                      // 
+000040 3000                      text_write_string:
+000041 f089                      	ldi r18, 0x00 ; x position
+                                 	ldi r17, 0x00 ; y position
+000042 3200                      	
+000043 f419                      	ldi ZH, 0x03 ; starting message buffer
+000044 e034                      	ldi ZL, 0x40
+000045 0f23                      
+000046 c00b                      text_write_string_load_next_character:
+                                 	; Load the next character from the buffer
                                  	ld r16, Z+
-000040 3200                      	cpi r16, 0x00
-000041 f419                      	breq text_write_string_end ; buffer finished?
-000042 e034                      
-000043 0f23                      	cpi r16, 0x20 ; space?
-000044 c00b                      	brne text_write_string_write_character
-                                 	ldi r19, 0x04
-                                 	add r18, r19
-000045 93ff                      	rjmp text_write_string_check_newline
-000046 93ef                      
-000047 932f                      text_write_string_write_character:
-000048 931f                      	push ZH
-000049 d008                      	push ZL
-00004a 911f                      	push r18
-00004b 912f                      	push r17
-00004c 91ef                      	rcall text_write_character
-00004d 91ff                      	pop r17
-00004e 0f20                      	pop r18
-00004f 9523                      	pop ZL
+000047 93ff                      	cpi r16, 0x00
+000048 93ef                      	breq text_write_string_end ; buffer finished?
+000049 932f                      
+00004a 931f                      	cpi r16, 0x20 ; space?
+00004b d008                      	brne text_write_string_write_character
+00004c 911f                      	ldi r19, 0x04
+00004d 912f                      	add r18, r19
+00004e 91ef                      	rjmp text_write_string_check_newline
+00004f 91ff                      
+000050 0f20                      text_write_string_write_character:
+000051 9523                      	push ZH
+                                 	push ZL
+                                 	push r18
+000052 cfec                      	push r17
+                                 	rcall text_write_character
+                                 	pop r17
+000053 9508                      	pop r18
+                                 	pop ZL
                                  	pop ZH
                                  	add r18, r16 ; increment x position
-000050 cfec                      	inc r18
+                                 	inc r18
                                  
                                  text_write_string_check_newline:
-000051 9508                      	rjmp text_write_string_load_next_character
+                                 	rjmp text_write_string_load_next_character
                                  
                                  text_write_string_end:
                                  	ret
-                                 
-                                 // Write an individual character to the display
+000054 932f                      
+000055 931f                      // Write an individual character to the display
                                  // Inputs:
-                                 // r16 - ASCII character to write
-                                 // r17 - Starting Y Position
+000056 d01f                      // r16 - ASCII character to write
+000057 2f30                      // r17 - Starting Y Position
                                  // r18 - Starting X Position
                                  //
-000052 932f                      // Outputs:
-000053 931f                      // r16 - Character width
-                                 text_write_character:
-000054 d01f                      	push r18 ; push starting X/Y positions onto the stack
-000055 2f30                      	push r17
+                                 // Outputs:
+                                 // r16 - Character width
+000058 910f                      text_write_character:
+000059 911f                      	push r18 ; push starting X/Y positions onto the stack
+00005a 2f41                      	push r17
                                  	
                                  	rcall text_load_character
-                                 	mov r19, r16 ; character width
-                                 
-000056 910f                      	; Restore starting x/y positions from the stack
-000057 911f                      	; pop r20 ; starting y position
-000058 2f41                      	;pop r21 ; starting x position
-                                 	pop r16 ; y position
-                                 	pop r17 ; x position
-000059 e0d3                      	mov r20, r17 ; keep track of the starting X position
-00005a 27cc                      
-                                 	
-                                 	ldi YH, 0x03  ; Buffer with uncompressed character pixel data
-00005b 9129                      	clr YL
-00005c 3021                      
-00005d f459                      text_write_character_next_pixel:
-00005e 934f                      	ld r18, Y+
-00005f 933f                      	cpi r18, 0x01
-000060 932f                      	brne text_write_character_increment
-000061 931f                      	push r20
-000062 930f                      	push r19
-000063 d035                      	push r18
-000064 910f                      	push r17
-000065 911f                      	push r16	
-000066 912f                      	rcall display_buffer_set_pixel
-000067 913f                      	pop r16
-000068 914f                      	pop r17
-                                 	pop r18
+00005b e0d3                      	mov r19, r16 ; character width
+00005c 27cc                      
+                                 	; Restore starting x/y positions from the stack
+                                 	; pop r20 ; starting y position
+00005d 9129                      	;pop r21 ; starting x position
+00005e 3021                      	pop r16 ; y position
+00005f f459                      	pop r17 ; x position
+000060 934f                      	mov r20, r17 ; keep track of the starting X position
+000061 933f                      
+000062 932f                      	
+000063 931f                      	ldi YH, 0x03  ; Buffer with uncompressed character pixel data
+000064 930f                      	clr YL
+000065 d035                      
+000066 910f                      text_write_character_next_pixel:
+000067 911f                      	ld r18, Y+
+000068 912f                      	cpi r18, 0x01
+000069 913f                      	brne text_write_character_increment
+00006a 914f                      	push r20
+                                 	push r19
+                                 	push r18
+00006b 9513                      	push r17
+                                 	push r16	
+00006c 2f51                      	rcall display_buffer_set_pixel
+00006d 1b54                      	pop r16
+00006e 1753                      	pop r17
+00006f f769                      	pop r18
                                  	pop r19
-000069 9513                      	pop r20
-                                 
-00006a 2f51                      text_write_character_increment:
-00006b 1b54                      	inc r17		 ; increment X position
-00006c 1753                      	; subtract from the starting position to determine how far in we are
-00006d f769                      	mov r21, r17 
-                                 	sub r21, r20
-00006e 2f14                      	cp r21, r19	 ; compare this distance to the character width to see if we're at the end
-00006f 9503                      	brne text_write_character_next_pixel
-000070 3008                      	; At the end of the line
-000071 f749                      	mov r17, r20  ; move X back to the beginning of the character
+000070 2f14                      	pop r20
+000071 9503                      
+000072 3008                      text_write_character_increment:
+000073 f749                      	inc r17		 ; increment X position
+                                 	; subtract from the starting position to determine how far in we are
+000074 2f03                      	mov r21, r17 
+000075 9508                      	sub r21, r20
+                                 	cp r21, r19	 ; compare this distance to the character width to see if we're at the end
+                                 	brne text_write_character_next_pixel
+                                 	; At the end of the line
+                                 	mov r17, r20  ; move X back to the beginning of the character
                                  	inc r16		  ; increment Y
-000072 2f03                      	cpi r16, 0x08 ; check if we're at the bottom of the character
-000073 9508                      	brne text_write_character_next_pixel
+                                 	cpi r16, 0x08 ; check if we're at the bottom of the character
+                                 	brne text_write_character_next_pixel
                                  	
                                  	mov r16, r19
                                  	ret
-                                 
-                                 ; saves character bits to $0300
+000076 e0f4                      
+000077 e0e0                      ; saves character bits to $0300
                                  ;
                                  ; Inputs:
                                  ; r16 - ASCII character to write
                                  ;
-                                 ; Outputs:
-000074 e0f4                      ; returns character width on r16
-000075 e0e0                      text_load_character:
+000078 5201                      ; Outputs:
+000079 3000                      ; returns character width on r16
+00007a f031                      text_load_character:
                                  	; load the width of the character
                                  	ldi ZH, 0x04
-                                 	ldi ZL, 0x00
-                                 
-000076 5601                      	; Loop to the position of the ASCII character
-000077 3000                      	; Subtract from the starting character
-000078 f031                      	; Then loop over program memory until looking for 0x00 until r16 is 0
-                                 	subi r16, 0x61 ; Starts at lowercase A, 0x61
-                                 	cpi r16, 0x00
-000079 9115                      	breq text_load_character_width
-00007a 3010                      	
-00007b f7e9                      text_load_character_seek_next_byte:
-                                 	lpm r17, Z+ ; character width
-00007c 5001                      	cpi r17, 0x00
-00007d 3000                      	brne text_load_character_seek_next_byte
-00007e f7d1                      
-                                 	subi r16, 0x01
+00007b 9115                      	ldi ZL, 0x00
+00007c 3010                      
+00007d f7e9                      	; Loop to the position of the ASCII character
+                                 	; Subtract from the starting character
+00007e 5001                      	; Then loop over program memory until looking for 0x00 until r16 is 0
+00007f 3000                      	subi r16, 0x21 ; Starts at exclamation point, 0x21
+000080 f7d1                      	cpi r16, 0x00
+                                 	breq text_load_character_width
+                                 	
+                                 text_load_character_seek_next_byte:
+000081 9105                      	lpm r17, Z+ ; character width
+                                 	cpi r17, 0x00
+                                 	brne text_load_character_seek_next_byte
+000082 e0d3                      
+000083 e0c0                      	subi r16, 0x01
                                  	cpi r16, 0x00
                                  	brne text_load_character_seek_next_byte
-00007f 9105                      	
-                                 
+000084 e010                      	
+000085 9125                      
                                  text_load_character_width:
-000080 e0d3                      	lpm r16, Z+ ; character width
-000081 e0c0                      
+000086 3020                      	lpm r16, Z+ ; character width
+000087 f061                      
                                  	; relative position in SRAM
-                                 	ldi YH, 0x03
-000082 e010                      	ldi YL, 0x00
-000083 9125                      
-                                 text_load_character_next_byte:
-000084 3020                      	ldi r17, 0x00 ; bit position in data byte
-000085 f061                      	lpm r18, Z+   ; data byte
+000088 3f2f                      	ldi YH, 0x03
+                                 	ldi YL, 0x00
+000089 f409                      
+00008a e020                      text_load_character_next_byte:
+                                 	ldi r17, 0x00 ; bit position in data byte
+                                 	lpm r18, Z+   ; data byte
+00008b 9513                      
+                                 	cpi r18, 0x00
+00008c e040                      	breq text_load_character_done
                                  
-000086 3f2f                      	cpi r18, 0x00
-                                 	breq text_load_character_done
-000087 f409                      
-000088 e020                      	cpi r18, 0xFF ; 0xFF symbolizes a null byte
-                                 				  ; Change it to 0x00
-                                 	brne text_load_character_next_bit
-000089 9513                      	ldi r18, 0x00
+00008d 0f22                      	cpi r18, 0xFF ; 0xFF symbolizes a null byte
+00008e f408                      				  ; Change it to 0x00
+00008f e041                      	brne text_load_character_next_bit
+                                 	ldi r18, 0x00
                                  
-00008a e040                      text_load_character_next_bit:
+000090 9349                      text_load_character_next_bit:
                                  	inc r17
-00008b 0f22                      
-00008c f408                      	ldi r20, 0x00
-00008d e041                      
+000091 3018                      
+000092 f7c1                      	ldi r20, 0x00
+000093 cff0                      
                                  	lsl r18
                                  	brcc text_load_character_store
-00008e 9349                      	ldi r20, 0x01
+000094 9508                      	ldi r20, 0x01
                                  
-00008f 3018                      text_load_character_store:
-000090 f7c1                      	st Y+, r20
-000091 cff0                      
-                                 	cpi r17, 0x08
-                                 	brne text_load_character_next_bit
-000092 9508                      	rjmp text_load_character_next_byte
+                                 text_load_character_store:
+                                 	st Y+, r20
                                  
-                                 text_load_character_done:
-                                 	ret
+000095 e0f1                      	cpi r17, 0x08
+000096 e0e0                      	brne text_load_character_next_bit
+                                 	rjmp text_load_character_next_byte
+000097 9201                      
+000098 30f3                      text_load_character_done:
+000099 f7e9                      	ret
+00009a 9508                      
                                  
-000093 e0f1                      
-000094 e0e0                      ; Clear the display buffer
+                                 ; Clear the display buffer
                                  display_buffer_clear:
-000095 9201                      	ldi ZH, 0x01
-000096 30f3                      	ldi ZL, 0x00
-000097 f7e9                      display_buffer_clear_store:
-000098 9508                      	st Z+, r0 ; r0 is probably 0....
+                                 	ldi ZH, 0x01
+                                 	ldi ZL, 0x00
+                                 display_buffer_clear_store:
+                                 	st Z+, r0 ; r0 is probably 0....
                                  	cpi ZH, 0x03 ; clear to 0x0300, instead of 0x02F8. Saves a few words...
                                  	brne display_buffer_clear_store
                                  	ret
-                                 
-                                 ; Set an individual pixel in the display buffer
-                                 ; r16 - Y
-                                 ; r17 - X
+00009b 2f30                      
+00009c 9535                      ; Set an individual pixel in the display buffer
+00009d 9535                      ; r16 - Y
+00009e 9535                      ; r17 - X
                                  display_buffer_set_pixel:
                                  	; Algorithm:
-                                 	; shift = y % 8;
-000099 2f30                      	; display_map[x + (y/8)*LCD_WIDTH] |= 1<<shift;
-00009a 9535                      
-00009b 9535                      	; divide Y by 8 (aka 3 right shifts)
-00009c 9535                      	mov r19, r16
+00009f e544                      	; shift = y % 8;
+0000a0 9f34                      	; display_map[x + (y/8)*LCD_WIDTH] |= 1<<shift;
+0000a1 2df1                      
+0000a2 2de0                      	; divide Y by 8 (aka 3 right shifts)
+                                 	mov r19, r16
                                  	asr r19 
-                                 	asr r19
-00009d e544                      	asr r19	
-00009e 9f34                      
-00009f 2df1                      	; multiply Y by LCD_WIDTH
-0000a0 2de0                      	ldi r20, LCD_WIDTH
+0000a3 1fe1                      	asr r19
+0000a4 e041                      	asr r19	
+0000a5 f408                      
+0000a6 0ff4                      	; multiply Y by LCD_WIDTH
+                                 	ldi r20, LCD_WIDTH
                                  	mul r19, r20
                                  	mov ZH, r1
-0000a1 1fe1                      	mov ZL, r0
-0000a2 e041                      
-0000a3 f408                      	; Add X
-0000a4 0ff4                      	adc ZL, r17	
-                                 	ldi r20, 0x01
-                                 	brcc display_buffer_set_pixel_add_offset
+0000a7 0ff4                      	mov ZL, r0
+                                 
+                                 	; Add X
+                                 	adc ZL, r17	
+0000a8 e037                      	ldi r20, 0x01
+0000a9 2303                      	brcc display_buffer_set_pixel_add_offset
                                  	add ZH, r20
-0000a5 0ff4                      
+                                 
                                  	; Add display buffer memory offset, $0100
-                                 display_buffer_set_pixel_add_offset:
-                                 	add ZH, r20
-0000a6 e037                      
-0000a7 2303                      	; Get the bit position within the display buffer byte
-                                 	; Y % 8 (aka bitmask with 0000 0111)
-                                 	ldi r19, 0x07
-                                 	and r16, r19
-0000a8 e031                      
-0000a9 3000                      	; Build a mask from the bit position
-0000aa f021                      	; Turn 2 into 0000 0100
+0000aa e031                      display_buffer_set_pixel_add_offset:
+0000ab 3000                      	add ZH, r20
+0000ac f021                      
+                                 	; Get the bit position within the display buffer byte
+0000ad 0f33                      	; Y % 8 (aka bitmask with 0000 0111)
+0000ae 950a                      	ldi r19, 0x07
+0000af 3000                      	and r16, r19
+0000b0 f7e1                      
+                                 	; Build a mask from the bit position
+                                 	; Turn 2 into 0000 0100
                                  	ldi r19, 0x01
-0000ab 0f33                      	cpi r16, 0x00
-0000ac 950a                      	breq display_buffer_set_pixel_apply_mask
-0000ad 3000                      display_buffer_set_pixel_shift_mask:
-0000ae f7e1                      	lsl r19
-                                 	dec r16
                                  	cpi r16, 0x00
+                                 	breq display_buffer_set_pixel_apply_mask
+0000b1 8140                      display_buffer_set_pixel_shift_mask:
+0000b2 2b43                      	lsl r19
+0000b3 8340                      	dec r16
+0000b4 9508                      	cpi r16, 0x00
                                  	brne display_buffer_set_pixel_shift_mask
                                  
                                  	; Load existing value from memory
-0000af 8140                      	; Apply the bitmask
-0000b0 2b43                      	; Store back to memory
-0000b1 8340                      display_buffer_set_pixel_apply_mask:	 
-0000b2 9508                      	ld r20, Z
+                                 	; Apply the bitmask
+0000b5 e0f1                      	; Store back to memory
+0000b6 e0e0                      display_buffer_set_pixel_apply_mask:	 
+                                 	ld r20, Z
                                  	or r20, r19	
                                  	st Z, r20
-                                 	ret
-                                 
-0000b3 e0f1                      ; Write display buffer to the LCD
-0000b4 e0e0                      lcdwrite_display_buffer:
+0000b7 9111                      	ret
+0000b8 e001                      
+0000b9 d005                      ; Write display buffer to the LCD
+                                 lcdwrite_display_buffer:
                                  	; Set memory position at start of display buffer, $0100
-                                 	ldi ZH, 0x01
-                                 	ldi ZL, 0x00	
-0000b5 9111                      
-0000b6 e001                      	; Loop through the buffer, sending each value to the LCD
-0000b7 d005                      lcdwrite_display_buffer_byte:
+0000ba 30f2                      	ldi ZH, 0x01
+0000bb f7d9                      	ldi ZL, 0x00	
+0000bc 3fe8                      
+0000bd f7c9                      	; Loop through the buffer, sending each value to the LCD
+0000be 9508                      lcdwrite_display_buffer_byte:
                                  	ld r17, Z+
                                  	ldi r16, LCD_DATA
-0000b8 30f2                      	rcall lcdwrite
-0000b9 f7d9                      
-0000ba 3fe8                      	; Stop if we're at the end, 84x48 + 0x0100 => 0x02F8
-0000bb f7c9                      	cpi ZH, 0x02
-0000bc 9508                      	brne lcdwrite_display_buffer_byte
-                                 	cpi ZL, 0xF8
-                                 	brne lcdwrite_display_buffer_byte
+                                 	rcall lcdwrite
+                                 
+0000bf 9a5d                      	; Stop if we're at the end, 84x48 + 0x0100 => 0x02F8
+                                 	cpi ZH, 0x02
+0000c0 3001                      	brne lcdwrite_display_buffer_byte
+0000c1 f009                      	cpi ZL, 0xF8
+0000c2 985d                      	brne lcdwrite_display_buffer_byte
                                  	ret
                                  
-0000bd 9a5d                      ; r16 - write_type (LCD_COMMAND or LCD_DATA)
-                                 ; r17 - data
-0000be 3001                      lcdwrite: 
-0000bf f009                      	sbi PORTD, PIN_DISPLAY_DC ; Set D/C line high as a default (sending data) to save some space
-0000c0 985d                      	; But check if that's really the right choice...
+                                 ; r16 - write_type (LCD_COMMAND or LCD_DATA)
+0000c3 985f                      ; r17 - data
+                                 lcdwrite: 
+                                 	sbi PORTD, PIN_DISPLAY_DC ; Set D/C line high as a default (sending data) to save some space
+0000c4 bd1e                      	; But check if that's really the right choice...
                                  	cpi r16, LCD_DATA
                                  	breq lcdwrite_send_data ; Yup, we're sending data? We're already good.
                                  	cbi PORTD, PIN_DISPLAY_DC ; Actually we're sending a command. Set the D/C line low
-0000c1 985f                      
-                                 lcdwrite_send_data:
-                                 	; Set chip select low
-0000c2 bd1e                      	cbi PORTD, PIN_DISPLAY_SCE
+0000c5 b50d                      
+0000c6 ff07                      lcdwrite_send_data:
+0000c7 cffd                      	; Set chip select low
+                                 	cbi PORTD, PIN_DISPLAY_SCE
                                  
-                                 	; Send the data
-                                 	out		SPDR, r17
-0000c3 b50d                      
-0000c4 ff07                      	; Wait for data to send
-0000c5 cffd                      lcdwrite_wait:
-                                 	in		r16, SPSR
-                                 	sbrs	r16, SPIF
-0000c6 9a5f                      	rjmp	lcdwrite_wait
-0000c7 9508                      
+0000c8 9a5f                      	; Send the data
+0000c9 9508                      	out		SPDR, r17
 
 
 RESOURCE USE INFORMATION
@@ -1523,9 +1676,9 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 "ATmega328P" register use summary:
-x  :   0 y  :   2 z  :  20 r0 :   2 r1 :   1 r2 :   0 r3 :   0 r4 :   0 
+x  :   0 y  :   2 z  :  21 r0 :   2 r1 :   1 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  56 r17:  26 r18:  16 r19:  17 r20:  16 
+r13:   0 r14:   0 r15:   0 r16:  58 r17:  26 r18:  16 r19:  17 r20:  16 
 r21:   3 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   2 
 r29:   2 r30:  10 r31:  12 
 Registers used: 14 out of 35 (40.0%)
@@ -1541,21 +1694,21 @@ clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   1 cls   :   0
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   1 cpc   :   0 
 cpi   :  16 cpse  :   0 dec   :   1 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   1 inc   :   4 jmp   :   0 
-ld    :   4 ldd   :   0 ldi   :  48 lds   :   0 lpm   :   3 lsl   :   2 
+ld    :   4 ldd   :   0 ldi   :  49 lds   :   0 lpm   :   3 lsl   :   2 
 lsr   :   0 mov   :   8 movw  :   0 mul   :   1 muls  :   0 mulsu :   0 
 neg   :   0 nop   :   0 or    :   1 ori   :   0 out   :   4 pop   :  11 
 push  :  11 rcall :  15 ret   :   8 reti  :   0 rjmp  :   5 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   4 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   1 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
-sez   :   0 sleep :   0 spm   :   0 st    :  15 std   :   0 sts   :   0 
+sez   :   0 sleep :   0 spm   :   0 st    :  16 std   :   0 sts   :   0 
 sub   :   1 subi  :   2 swap  :   0 tst   :   0 wdr   :   0 
 Instructions used: 32 out of 113 (28.3%)
 
 "ATmega328P" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000494    400    148    548   32768   1.7%
+[.cseg] 0x000000 0x0005d0    404    464    868   32768   2.6%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 
