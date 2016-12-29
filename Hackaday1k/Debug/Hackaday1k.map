@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Tue Dec 27 21:51:33 2016
+AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Wed Dec 28 21:29:27 2016
 
 
 EQU  SIGNATURE_000 0000001e
@@ -705,31 +705,31 @@ EQU  LCD_WIDTH    00000054
 EQU  LCD_HEIGHT   00000030
 CSEG tinyfont     00000200
 CSEG start        00000000
-CSEG lcdwrite     000000bf
-CSEG display_buffer_clear 00000095
-CSEG init_message 0000001e
-CSEG text_write_string 0000003b
-CSEG lcdwrite_display_buffer 000000b5
-CSEG loop         0000001d
-CSEG text_write_string_load_next_character 0000003f
-CSEG text_write_string_end 00000053
-CSEG text_write_string_write_character 00000047
-CSEG text_write_string_check_newline 00000052
-CSEG text_write_character 00000054
-CSEG text_load_character 00000076
-CSEG text_write_character_next_pixel 0000005d
-CSEG text_write_character_increment 0000006b
-CSEG display_buffer_set_pixel 0000009b
-CSEG text_load_character_width 00000081
-CSEG text_load_character_seek_next_byte 0000007b
-CSEG text_load_character_next_byte 00000084
-CSEG text_load_character_done 00000094
-CSEG text_load_character_next_bit 0000008b
-CSEG text_load_character_store 00000090
-CSEG display_buffer_clear_store 00000097
-CSEG display_buffer_set_pixel_add_offset 000000a7
-CSEG display_buffer_set_pixel_apply_mask 000000b1
-CSEG display_buffer_set_pixel_shift_mask 000000ad
-CSEG lcdwrite_display_buffer_byte 000000b7
-CSEG lcdwrite_send_data 000000c3
-CSEG lcdwrite_wait 000000c5
+CSEG lcdwrite     000000ac
+CSEG display_buffer_clear 00000082
+CSEG text_write_string 0000001d
+CSEG lcdwrite_display_buffer 000000a2
+CSEG loop         0000001c
+CSEG text_write_string_load_next_character 00000021
+CSEG text_write_string_end 0000003b
+CSEG text_write_string_check_if_space_space 0000002a
+CSEG text_write_string_check_newline 0000003a
+CSEG text_write_string_write_character 0000002f
+CSEG text_write_character 0000003c
+CSEG text_load_character 00000063
+CSEG text_write_character_next_pixel 00000046
+CSEG text_write_character_increment 00000056
+CSEG display_buffer_set_pixel 00000088
+CSEG text_load_character_width 0000006e
+CSEG text_load_character_seek_next_byte 00000068
+CSEG text_load_character_next_byte 00000071
+CSEG text_load_character_done 00000081
+CSEG text_load_character_next_bit 00000078
+CSEG text_load_character_store 0000007d
+CSEG display_buffer_clear_store 00000084
+CSEG display_buffer_set_pixel_add_offset 00000094
+CSEG display_buffer_set_pixel_apply_mask 0000009e
+CSEG display_buffer_set_pixel_shift_mask 0000009a
+CSEG lcdwrite_display_buffer_byte 000000a4
+CSEG lcdwrite_send_data 000000b0
+CSEG lcdwrite_wait 000000b2
