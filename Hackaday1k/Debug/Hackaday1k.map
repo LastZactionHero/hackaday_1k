@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Wed Dec 28 21:49:20 2016
+AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Wed Dec 28 22:28:57 2016
 
 
 EQU  SIGNATURE_000 0000001e
@@ -705,33 +705,38 @@ EQU  LCD_WIDTH    00000054
 EQU  LCD_HEIGHT   00000030
 CSEG tinyfont     00000200
 CSEG start        00000000
-CSEG lcdwrite     000000b6
-CSEG display_buffer_clear 0000008c
-CSEG init_message_buffer 0000001e
-CSEG text_write_string 00000027
-CSEG lcdwrite_display_buffer 000000ac
-CSEG loop         0000001d
-CSEG init_message_buffer_load_next_byte 00000022
-CSEG text_write_string_load_next_character 0000002b
-CSEG text_write_string_end 00000045
-CSEG text_write_string_check_if_space_space 00000034
-CSEG text_write_string_check_newline 00000044
-CSEG text_write_string_write_character 00000039
-CSEG text_write_character 00000046
-CSEG text_load_character 0000006d
-CSEG text_write_character_next_pixel 00000050
-CSEG text_write_character_increment 00000060
-CSEG display_buffer_set_pixel 00000092
-CSEG text_load_character_width 00000078
-CSEG text_load_character_seek_next_byte 00000072
-CSEG text_load_character_next_byte 0000007b
-CSEG text_load_character_done 0000008b
-CSEG text_load_character_next_bit 00000082
-CSEG text_load_character_store 00000087
-CSEG display_buffer_clear_store 0000008e
-CSEG display_buffer_set_pixel_add_offset 0000009e
-CSEG display_buffer_set_pixel_apply_mask 000000a8
-CSEG display_buffer_set_pixel_shift_mask 000000a4
-CSEG lcdwrite_display_buffer_byte 000000ae
-CSEG lcdwrite_send_data 000000ba
-CSEG lcdwrite_wait 000000bc
+CSEG lcdwrite     000000e0
+CSEG display_buffer_clear 000000b6
+CSEG init_message_buffer 0000001f
+CSEG add_line_breaks 00000028
+CSEG text_write_string 00000051
+CSEG lcdwrite_display_buffer 000000d6
+CSEG loop         0000001e
+CSEG init_message_buffer_load_next_byte 00000023
+CSEG add_line_breaks_load_next_byte 0000002b
+CSEG add_line_breaks_end 00000050
+CSEG add_line_breaks_check_if_space 00000033
+CSEG add_line_breaks_get_length 0000003a
+CSEG text_load_character 00000097
+CSEG text_write_string_load_next_character 00000055
+CSEG text_write_string_end 0000006f
+CSEG text_write_string_check_if_space_space 0000005e
+CSEG text_write_string_check_newline 0000006e
+CSEG text_write_string_write_character 00000063
+CSEG text_write_character 00000070
+CSEG text_write_character_next_pixel 0000007a
+CSEG text_write_character_increment 0000008a
+CSEG display_buffer_set_pixel 000000bc
+CSEG text_load_character_width 000000a2
+CSEG text_load_character_seek_next_byte 0000009c
+CSEG text_load_character_next_byte 000000a5
+CSEG text_load_character_done 000000b5
+CSEG text_load_character_next_bit 000000ac
+CSEG text_load_character_store 000000b1
+CSEG display_buffer_clear_store 000000b8
+CSEG display_buffer_set_pixel_add_offset 000000c8
+CSEG display_buffer_set_pixel_apply_mask 000000d2
+CSEG display_buffer_set_pixel_shift_mask 000000ce
+CSEG lcdwrite_display_buffer_byte 000000d8
+CSEG lcdwrite_send_data 000000e4
+CSEG lcdwrite_wait 000000e6
