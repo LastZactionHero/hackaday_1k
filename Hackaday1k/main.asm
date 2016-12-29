@@ -91,6 +91,8 @@ start:
 
 	rcall display_buffer_clear
 
+	rcall init_message_buffer
+
 	; Set some pixels
 	rcall text_write_string
 
@@ -100,17 +102,35 @@ start:
 loop:
     rjmp loop
 
+init_message_buffer:
+	ldi ZH, 0x05 ; start of preloaded message in program
+	ldi ZL, 0xD0
+
+	ldi YH, 0x03 ; start of message buffer in SRAM
+	ldi YL, 0x40
+
+init_message_buffer_load_next_byte:
+	; Store the byte
+	lpm r16, Z+
+	st Y+, r16
+
+	; End of buffer?
+	cpi r16, 0x00
+	brne init_message_buffer_load_next_byte
+
+	ret
+
 // 
 text_write_string:
 	ldi r18, 0x00 ; x position
 	ldi r17, 0x00 ; y position
 	
-	ldi ZH, 0x05 ; starting message buffer
-	ldi ZL, 0xD0
+	ldi ZH, 0x03 ; starting message buffer in SRAM
+	ldi ZL, 0x40
 
 text_write_string_load_next_character:
 	; Load the next character from the buffer
-	lpm r16, Z+
+	ld r16, Z+
 	cpi r16, 0x00
 	breq text_write_string_end ; buffer finished?
 
