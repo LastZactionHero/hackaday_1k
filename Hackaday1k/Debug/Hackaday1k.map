@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Wed Dec 28 22:28:57 2016
+AVRASM ver. 2.2.6  C:\Users\Zach\Documents\Atmel Studio\7.0\Hackaday1k\Hackaday1k\main.asm Thu Dec 29 20:00:29 2016
 
 
 EQU  SIGNATURE_000 0000001e
@@ -703,14 +703,13 @@ EQU  LCD_DATA     00000001
 EQU  LCD_CONTRAST 00000032
 EQU  LCD_WIDTH    00000054
 EQU  LCD_HEIGHT   00000030
-CSEG tinyfont     00000200
 CSEG start        00000000
-CSEG lcdwrite     000000e0
-CSEG display_buffer_clear 000000b6
+CSEG lcdwrite     000000e6
+CSEG display_buffer_clear 000000bc
 CSEG init_message_buffer 0000001f
 CSEG add_line_breaks 00000028
 CSEG text_write_string 00000051
-CSEG lcdwrite_display_buffer 000000d6
+CSEG lcdwrite_display_buffer 000000dc
 CSEG loop         0000001e
 CSEG init_message_buffer_load_next_byte 00000023
 CSEG add_line_breaks_load_next_byte 0000002b
@@ -726,17 +725,17 @@ CSEG text_write_string_write_character 00000063
 CSEG text_write_character 00000070
 CSEG text_write_character_next_pixel 0000007a
 CSEG text_write_character_increment 0000008a
-CSEG display_buffer_set_pixel 000000bc
-CSEG text_load_character_width 000000a2
-CSEG text_load_character_seek_next_byte 0000009c
-CSEG text_load_character_next_byte 000000a5
-CSEG text_load_character_done 000000b5
-CSEG text_load_character_next_bit 000000ac
-CSEG text_load_character_store 000000b1
-CSEG display_buffer_clear_store 000000b8
-CSEG display_buffer_set_pixel_add_offset 000000c8
-CSEG display_buffer_set_pixel_apply_mask 000000d2
-CSEG display_buffer_set_pixel_shift_mask 000000ce
-CSEG lcdwrite_display_buffer_byte 000000d8
-CSEG lcdwrite_send_data 000000e4
-CSEG lcdwrite_wait 000000e6
+CSEG display_buffer_set_pixel 000000c2
+CSEG text_load_character_width 000000a6
+CSEG text_load_character_seek_next 0000009e
+CSEG text_load_character_next_byte 000000aa
+CSEG text_load_character_next_bit 000000af
+CSEG text_load_character_store 000000b4
+CSEG text_load_character_done 000000bb
+CSEG display_buffer_clear_store 000000be
+CSEG display_buffer_set_pixel_add_offset 000000ce
+CSEG display_buffer_set_pixel_apply_mask 000000d8
+CSEG display_buffer_set_pixel_shift_mask 000000d4
+CSEG lcdwrite_display_buffer_byte 000000de
+CSEG lcdwrite_send_data 000000ea
+CSEG lcdwrite_wait 000000ec
