@@ -105,6 +105,7 @@ start:
 	; Receive message from UART and display to LCD
 	; Reset message on newline character
 	ldi r17, 0x00 ; storage position in message buffer
+	sbi PORTB, PB1 ; Turn on the backlight
 loop:
 	; Poll for new character
 	lds r18, UCSR0A
@@ -117,11 +118,11 @@ loop:
 	brne uart_loop_store_character
 
 	; Prep the message and write to the display
+	rcall display_buffer_clear
 	rcall add_line_breaks
 	rcall text_write_string
 	rcall lcdwrite_display_buffer
-
-	sbi PORTB, PB1 ; Turn on the backlight
+	
 
 	; Reset the message buffer
 	ldi r17, 0x00
